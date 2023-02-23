@@ -1,0 +1,28 @@
+{
+  "events": [
+    {
+      "eventID": "outros_headers_200",
+      "serviceCategoryCode": {
+        "shortName": "HR"
+      },
+      "eventNameCode": {
+        "shortName": "worker.deposit-account.add"
+      },
+      "eventTitle": "Worker Deposit Account Add",
+      "recordDateTime": "2023-01-18T07:50:00Z",
+      "creationDateTime": "2023-01-18T07:50:00Z",
+      "effectiveDateTime": "2023-01-20T15:15:00Z",
+      "data": {
+        "eventContext": {
+          "worker": {
+            "associateOID": "10565022-00001188",
+            "workerID": {
+              "idValue": "001-00000731"
+            }
+          }
+        },
+        "transform": {}
+      }
+    }
+  ]
+}

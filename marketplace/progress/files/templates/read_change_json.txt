@@ -1,0 +1,54 @@
+procedure p-read-{{PROCEDURE_NAME}}-json:
+
+    define input  parameter ipcha-type       as character no-undo.
+    define output parameter opcha-error-code as character no-undo.
+
+    define variable vobj-json-body    as JsonObject        no-undo.
+    define variable vobj-json-array   as JsonArray         no-undo.
+    define variable vobj-json-element as JsonObject        no-undo.
+    define variable vobj-json-temp    as JsonObject        no-undo.
+    define variable vint-array-length as integer           no-undo.
+    define variable vint-count        as integer           no-undo.
+    define variable vobj-parser       as ObjectModelParser no-undo.
+
+    assign vobj-parser    = NEW ObjectModelParser()
+           vobj-json-body = CAST(vobj-parser:Parse(cha-pad-body-input), JsonObject).
+
+    if valid-object (vobj-json-body) and vobj-json-body:has('events') then do:
+
+        assign vobj-json-array   = vobj-json-body:GetJsonArray('events')
+               vint-array-length = vobj-json-array:length.
+
+        if vint-array-length <> 1
+        then do:
+            assign opcha-error-code = "POST-7".
+            return.
+        end.
+
+        assign vobj-json-element = vobj-json-array:GetJsonObject(1).
+
+        run p-populate-default-fields (input vobj-json-element).
+
+        if  vobj-json-element:Has("data")
+        and vobj-json-element:GetJsonObject("data"):Has("eventContext")
+        and vobj-json-element:GetJsonObject("data"):GetJsonObject("eventContext"):Has("worker")
+        then do:
+
+            assign vobj-json-temp = vobj-json-element:GetJsonObject("data"):GetJsonObject("eventContext"):GetJsonObject("worker").
+
+            if  vobj-json-temp:Has("associateOID")
+            and vobj-json-temp:Has("workerID")
+            and vobj-json-temp:GetJsonObject("workerID"):Has("idValue")
+            then do:
+                assign vcha-associateOID = vobj-json-temp:GetCharacter("associateOID")
+                       vcha-workerid     = vobj-json-temp:GetJsonObject("workerID"):GetCharacter("idValue").
+            end.
+
+            if ipcha-type <> "REMOVE"
+            {{TRANSFORM}}
+            then do:
+
+            end.
+        end.
+    end.
+end procedure.

@@ -1,0 +1,69 @@
+{
+  "events": [
+    {
+      "eventID": "headers_validos_200",
+      "serviceCategoryCode": {
+        "shortName": "HR"
+      },
+      "eventNameCode": {
+        "shortName": "worker.pay-distributions.change"
+      },
+      "eventTitle": "Worker Pay Distributions Change",
+      "recordDateTime": "2014-01-01T00:00:00Z",
+      "creationDateTime": "2014-01-01T00:00:00Z",
+      "effectiveDateTime": "2023-01-20T15:15:00Z",
+      "data": {
+        "eventContext": {
+          "worker": {
+            "associateOID": "10565022-00001188",
+            "workerID": {
+              "idValue": "001-00000731"
+            }
+          }
+        },
+        "transform": {
+          "payDistribution": {
+            "distributionPurposeCode": {
+              "shortName": "Salary"
+            },
+            "distributionInstructions": [
+              {
+                "paymentMethodCode": {
+                  "codeValue": "1",
+                  "shortName": "Direct Deposit - Checking Account"
+                },
+                "depositAccount": {
+                  "accountID": {
+                    "idValue": "1",
+                    "schemeCode": {
+                      "codeValue": "1",
+                      "shortName": "Direct Deposit - Checking Account"
+                    }
+                  },
+                  "BBAN": "341",
+                  "financialParty": {
+                    "nameCode": {
+                      "codeValue": "0",
+                      "shortName": "João Silva"
+                    },
+                    "branchNameCode": {
+                      "codeValue": "012548-7",
+                      "shortName": "Agência do Centro"
+                    }
+                  },
+                  "financialAccount": {
+                    "accountNumber": "1234-5",
+                    "typeCode": {
+                      "shortName": "Checking"
+                    },
+                    "currencyCode": "BRL"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
