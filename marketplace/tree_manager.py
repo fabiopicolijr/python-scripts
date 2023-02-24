@@ -1,4 +1,4 @@
-from treelib import Tree
+from treelib import Tree, Node
 
 from marketplace.tree_node import TreeNode
 
@@ -8,7 +8,6 @@ class TreeManager(Tree):
     TreeManager
     Responsible for manage Tree operations into mrbighand
     """
-
     def __init__(self, tree=None, deep=False, node_class=None, identifier=None):
         super().__init__()
         self.reserved_fields = ["id"]
@@ -49,7 +48,7 @@ class TreeManager(Tree):
         except Exception as e:
             raise Exception(f"TreeManager: Unable to dict_to_tree(): {e}")
 
-    def get_all_parents(self, nid: str, parents: list) -> list:
+    def get_all_parents(self, nid: str, parents: list[Node]) -> list[Node]:
         """
         Get all parents from a nid
         :param parents:
@@ -58,9 +57,9 @@ class TreeManager(Tree):
         """
 
         if self.parent(nid) is not None:
-            parent_id = self.parent(nid).identifier
-            parents.append(parent_id)
-            return self.get_all_parents(parent_id, parents)
+            parent_node = self.parent(nid)
+            parents.append(parent_node)
+            return self.get_all_parents(parent_node.identifier, parents)
 
         return parents[::-1]
 

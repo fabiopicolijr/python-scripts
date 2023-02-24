@@ -11,6 +11,16 @@ def interpolate_procedure_read_change_json(data):
     return data
 
 
+def get_parents_line_template(type_: classmethod) -> str:
+
+    if type_ == list:
+        output = 'GetJsonArray("{{PARENT}}"):GetJsonObject(1):'
+    else:
+        output = 'GetJsonObject("{{PARENT}}"):'
+
+    return output
+
+
 def interpolate_transform(data):
     """
     Refatorar esse metodo para ser generico, vai ficar bom!
@@ -21,14 +31,21 @@ def interpolate_transform(data):
     # tree.show()
     subtree_transform = tree.subtree(nid='transform')
 
-    parents_line_template = 'GetJsonObject("{{PARENT}}"):'
     progress_line_template = 'Has("{{FIELD}}")'
 
     new_transform = []
 
     for node in subtree_transform.expand_tree(mode=Tree.WIDTH):
-        parents = subtree_transform.get_all_parents(node, [])
-        parents_line = [parents_line_template.replace('{{PARENT}}', parent) for parent in parents]
+        parent_nodes = subtree_transform.get_all_parents(node, [])
+
+        # parents_line = [parents_line_template.replace('{{PARENT}}', parent.identifier) for parent in parent_nodes]
+        parents_line = []
+
+        for parent in parent_nodes:
+            parents_line_template = get_parents_line_template(parent.data.type_)
+            line = parents_line_template.replace('{{PARENT}}', parent.identifier)
+            parents_line.append(line)
+
         progress_line = progress_line_template.replace('{{FIELD}}', node)
 
         new_transform.append('and vobj-json-element:GetJsonObject("data"):' + ''.join(parents_line) + progress_line)
