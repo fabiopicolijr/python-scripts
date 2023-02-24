@@ -49,7 +49,7 @@ class TreeManager(Tree):
         except Exception as e:
             raise Exception(f"TreeManager: Unable to dict_to_tree(): {e}")
 
-    def get_all_parents(self, nid: str, parents=None) -> list:
+    def get_all_parents(self, nid: str, parents: list) -> list:
         """
         Get all parents from a nid
         :param parents:
@@ -57,18 +57,12 @@ class TreeManager(Tree):
         :return: list of parents
         """
 
-        if parents is None:
-            parents = []
+        if self.parent(nid) is not None:
+            parent_id = self.parent(nid).identifier
+            parents.append(parent_id)
+            return self.get_all_parents(parent_id, parents)
 
-        if self.parent(nid) is None:
-            if len(parents) == 0:
-                return []
-            return parents[::-1]
-
-        parent_id = self.parent(nid).identifier
-        parents.append(parent_id)
-
-        return self.get_all_parents(parent_id, parents)
+        return parents[::-1]
 
     def get_unique_identifier(self, identifier):
         loop = True
