@@ -62,7 +62,7 @@ class TreeManager(Tree):
 
         if self.parent(nid) is None:
             if len(parents) == 0:
-                return [nid]
+                return []
             return parents[::-1]
 
         parent_id = self.parent(nid).identifier

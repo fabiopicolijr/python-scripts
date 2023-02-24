@@ -45,7 +45,7 @@ procedure p-read-worker-pay-distribution-json:
             end.
 
             if ipcha-type <> "REMOVE"
-            and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):Has("transform")
+            and vobj-json-element:GetJsonObject("data"):Has("transform")
 and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):Has("payDistribution")
 and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):Has("distributionInstructions")
 and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):Has("distributionPurposeCode")

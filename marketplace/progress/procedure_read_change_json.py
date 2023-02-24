@@ -27,7 +27,7 @@ def interpolate_transform(data):
     new_transform = []
 
     for node in subtree_transform.expand_tree(mode=Tree.WIDTH):
-        parents = subtree_transform.get_all_parents(node)
+        parents = subtree_transform.get_all_parents(node, [])
         parents_line = [parents_line_template.replace('{{PARENT}}', parent) for parent in parents]
         progress_line = progress_line_template.replace('{{FIELD}}', node)
 
