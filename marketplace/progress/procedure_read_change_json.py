@@ -12,12 +12,10 @@ def interpolate_procedure_read_change_json(data):
 
 
 def get_parents_line_template(type_: classmethod) -> str:
-
     if type_ == list:
         output = 'GetJsonArray("{{PARENT}}"):GetJsonObject(1):'
     else:
         output = 'GetJsonObject("{{PARENT}}"):'
-
     return output
 
 
@@ -38,6 +36,7 @@ def interpolate_transform(data):
     for node in subtree_transform.expand_tree(mode=Tree.WIDTH):
         parent_nodes = subtree_transform.get_all_parents(node, [])
 
+        # TODO: refactor -> Create parents_line and progress_line function
         # parents_line = [parents_line_template.replace('{{PARENT}}', parent.identifier) for parent in parent_nodes]
         parents_line = []
 
