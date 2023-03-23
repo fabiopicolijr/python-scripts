@@ -1,4 +1,4 @@
-from marketplace.config import context
+from marketplace._config import context
 from marketplace.functions import json_to_tree
 
 from treelib import Tree

@@ -1,6 +1,8 @@
 procedure p-read-{{PROCEDURE_NAME}}-json:
 
     define input  parameter ipcha-type       as character no-undo.
+    define output parameter vcha-associateOID as character no-undo.
+    define output parameter vcha-workerid as character no-undo.
     define output parameter opcha-error-code as character no-undo.
 
     define variable vobj-json-body    as JsonObject        no-undo.

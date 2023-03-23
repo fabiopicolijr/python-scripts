@@ -1,25 +1,18 @@
 import os
 
+from marketplace.behave.classes.interpolation_schema import InterpolationSchema
 
-version = 'v1'
-prefix = 'Worker'
-name = 'Deposit Account'
-type_ = 'Add'
-dir_path = os.path.dirname(os.path.realpath(__file__))
+ROOT_PATH = os.path.dirname(os.path.realpath(__file__))
+JIRA_TASKS = ['headers', 'body_and_output']
 
-context = {
-    'version': version.lower(),
-    'name': name.capitalize(),
-    'shortname': f'{prefix.lower()}.{"-".join(name.split()).lower()}',
-    'eventTitle': f'{prefix.capitalize()} {name.capitalize()} {type_.capitalize()}',
-    'paths': {
-        'templates': {
-            'post': {
-                'headers': {
-                    'inputs': f'{dir_path}\\files\\templates\\post\\headers\\inputs'
-                }
-            }
-        }
-
-    }
+FILE = {
+    'body_transform_tag': f'{ROOT_PATH}/files/templates/post/body_transform_tag.json',
+    'body_output_tag': f'{ROOT_PATH}/files/templates/post/body_output_tag.json'
 }
+
+PATH = {
+    'templates': f'{ROOT_PATH}/files/templates',
+    'output': f'{ROOT_PATH}/files/output'
+}
+
+INTERPOLATION_SCHEMA = InterpolationSchema()

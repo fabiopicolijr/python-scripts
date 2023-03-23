@@ -33,7 +33,5 @@ context = {
         'outputs': {
             'procedure_read_change_json': f'{dir_files_progress}\\outputs\\progress\\procedure_read_change_json.p'
         }
-
-
     }
 }

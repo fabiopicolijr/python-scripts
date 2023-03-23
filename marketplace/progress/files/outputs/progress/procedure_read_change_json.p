@@ -1,6 +1,8 @@
 procedure p-read-worker-pay-distribution-json:
 
     define input  parameter ipcha-type       as character no-undo.
+    define output parameter vcha-associateOID as character no-undo.
+    define output parameter vcha-workerid as character no-undo.
     define output parameter opcha-error-code as character no-undo.
 
     define variable vobj-json-body    as JsonObject        no-undo.
@@ -53,25 +55,22 @@ and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonOb
 and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):Has("paymentMethodCode")
 and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonObject("distributionPurposeCode"):Has("shortName__1__2")
 and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):Has("BBAN")
-and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):Has("accountID")
 and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):Has("financialAccount")
 and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):Has("financialParty")
 and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("paymentMethodCode"):Has("codeValue")
 and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("paymentMethodCode"):Has("shortName__1__2__3")
-and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("accountID"):Has("idValue__1")
-and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("accountID"):Has("schemeCode")
 and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("financialAccount"):Has("accountNumber")
 and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("financialAccount"):Has("currencyCode")
 and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("financialAccount"):Has("typeCode")
 and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("financialParty"):Has("branchNameCode")
 and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("financialParty"):Has("nameCode")
-and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("accountID"):GetJsonObject("schemeCode"):Has("codeValue__1")
-and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("accountID"):GetJsonObject("schemeCode"):Has("shortName__1__2__3__4")
-and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("financialAccount"):GetJsonObject("typeCode"):Has("shortName__1__2__3__4__5__6__7")
-and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("financialParty"):GetJsonObject("branchNameCode"):Has("codeValue__1__2__3")
-and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("financialParty"):GetJsonObject("branchNameCode"):Has("shortName__1__2__3__4__5__6")
-and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("financialParty"):GetJsonObject("nameCode"):Has("codeValue__1__2")
-and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("financialParty"):GetJsonObject("nameCode"):Has("shortName__1__2__3__4__5")
+and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("financialParty"):Has("routingTransitID")
+and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("financialAccount"):GetJsonObject("typeCode"):Has("shortName__1__2__3__4__5__6")
+and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("financialParty"):GetJsonObject("branchNameCode"):Has("codeValue__1__2")
+and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("financialParty"):GetJsonObject("branchNameCode"):Has("shortName__1__2__3__4__5")
+and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("financialParty"):GetJsonObject("nameCode"):Has("codeValue__1")
+and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("financialParty"):GetJsonObject("nameCode"):Has("shortName__1__2__3__4")
+and vobj-json-element:GetJsonObject("data"):GetJsonObject("transform"):GetJsonObject("payDistribution"):GetJsonArray("distributionInstructions"):GetJsonObject(1):GetJsonObject("depositAccount"):GetJsonObject("financialParty"):GetJsonObject("routingTransitID"):Has("idValue__1")
             then do:
 
             end.
