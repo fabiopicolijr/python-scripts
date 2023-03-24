@@ -21,7 +21,7 @@ def interpolate_template(api: Api, template_file):
 
 def interpolate_filename(filename, api):
     new_file = filename \
-        .replace(INTERPOLATION_SCHEMA.url_main_path, api.url_main_path) \
+        .replace(INTERPOLATION_SCHEMA.filename_begin, api.filename_begin) \
         .replace(INTERPOLATION_SCHEMA.method, api.method)
 
     return new_file

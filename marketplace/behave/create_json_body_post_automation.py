@@ -27,11 +27,12 @@ def process_template(api: Api, file):
 
 def main():
     try:
-        api = Api(PARAMETERS['version'], PARAMETERS['service'], PARAMETERS['prefix'], PARAMETERS['name'], PARAMETERS['method'])
+        api = Api(PARAMETERS['version'], PARAMETERS['service'], PARAMETERS['prefix'], PARAMETERS['name'], PARAMETERS['method'], PARAMETERS['filename_begin'])
         template_path = f"{PATH['templates']}/{PARAMETERS['request_method']}/{PARAMETERS['task']}"
 
         erase_path(PATH['output'])
         process_templates(api, template_path)
+        # TODO: process_filenames
     except Exception as e:
         show_error_message(e)
     else:
