@@ -4,9 +4,9 @@ PARAMETERS = {
     'version': 'V1',
     'service': 'PAYROLL',
     'prefix': 'Worker',
-    'name': 'Pay Distribution',
-    'method': 'Change',
+    'name': 'Pay Data Inputs',
+    'method': 'Add',
     'request_method': 'post',
-    'task': JIRA_TASKS[0]
+    'task': JIRA_TASKS[1]
 }
 
