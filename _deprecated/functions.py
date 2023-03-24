@@ -1,5 +1,5 @@
 import json
-from marketplace.tree_manager import TreeManager
+from _deprecated.tree_manager import TreeManager
 
 
 def json_to_dict(file: str) -> dict:

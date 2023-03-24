@@ -19,7 +19,7 @@ class Api:
         self.url_main_path = f"{'_'.join(self.title.split()).lower()}"
         self.method = self.method.lower()
         self.body = ApiBody(
-            service_category_code=self.method,
+            service_category_code=self.service,
             event_title=f'{self.prefix.lower()}.{"-".join(self.name.split()).lower()}.{self.method}',
             event_name_code=f'{self.title} {self.method.capitalize()}'
         )

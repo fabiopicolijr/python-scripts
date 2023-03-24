@@ -1,3 +1,6 @@
+import json
+from json_stream.dump import JSONStreamEncoder
+
 from marketplace.behave.config import PATH, FILE, INTERPOLATION_SCHEMA
 from marketplace.behave.classes.api import Api
 
@@ -11,7 +14,9 @@ def interpolate_template(api: Api, template_file):
     with open(template_file, 'r') as stream, open(output_file, 'w') as stream_write:
         content = stream.read()
         new_content = interpolate_content(content, api)
-        stream_write.write(new_content)
+        new_content_indented = json.dumps(json.loads(new_content), indent=2)
+
+        stream_write.write(new_content_indented)
 
 
 def interpolate_filename(filename, api):

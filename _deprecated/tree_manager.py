@@ -1,6 +1,6 @@
 from treelib import Tree, Node
 
-from marketplace.tree_node import TreeNode
+from _deprecated.tree_node import TreeNode
 
 
 class TreeManager(Tree):

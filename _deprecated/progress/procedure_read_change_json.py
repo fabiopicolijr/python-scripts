@@ -1,5 +1,5 @@
-from marketplace._config import context
-from marketplace.functions import json_to_tree
+from _deprecated._config import context
+from _deprecated.functions import json_to_tree
 
 from treelib import Tree
 
