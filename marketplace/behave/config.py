@@ -3,7 +3,6 @@ import os
 from marketplace.behave.classes.interpolation_schema import InterpolationSchema
 
 ROOT_PATH = os.path.dirname(os.path.realpath(__file__))
-JIRA_TASKS = ['headers', 'body_and_output']
 
 FILE = {
     'body_transform_tag': f'{ROOT_PATH}/files/templates/post/body_transform_tag.json',

@@ -5,7 +5,7 @@ from marketplace.behave.config import PATH, FILE, INTERPOLATION_SCHEMA
 from marketplace.behave.classes.api import Api
 
 
-def interpolate_template(api: Api, template_file):
+def interpolate_file(api: Api, template_file):
     file = template_file.split('/')[-1]
 
     new_file = interpolate_filename(file, api)
@@ -14,15 +14,23 @@ def interpolate_template(api: Api, template_file):
     with open(template_file, 'r') as stream, open(output_file, 'w') as stream_write:
         content = stream.read()
         new_content = interpolate_content(content, api)
-        new_content_indented = json.dumps(json.loads(new_content), indent=2)
 
-        stream_write.write(new_content_indented)
+        if template_file.endswith('json'):
+            new_content = json.dumps(json.loads(new_content), indent=2)
+
+        stream_write.write(new_content)
 
 
 def interpolate_filename(filename, api):
+    filepiece_api_operation = api.operation.lower()
+    filepiece_api_name = f'{"_".join(api.name.split())}'.lower()
+
+    if api.prefix:
+        filepiece_api_name = f'{api.prefix}.{filepiece_api_name}'.lower()
+
     new_file = filename \
-        .replace(INTERPOLATION_SCHEMA.filename_begin, api.filename_begin) \
-        .replace(INTERPOLATION_SCHEMA.method, api.method)
+        .replace(INTERPOLATION_SCHEMA.filename_begin, filepiece_api_name) \
+        .replace(INTERPOLATION_SCHEMA.method, filepiece_api_operation)
 
     return new_file
 

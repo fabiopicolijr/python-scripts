@@ -3,9 +3,9 @@
         {
             "payeePayInputs": [
                 {
-                    "associateOID": "9999-0001234567",
+                    "associateOID": "10565022-00001118",
                     "payeeID": {
-                        "idValue" : "001-123456789"
+                        "idValue" : "001-00001298"
                     },
                     "payNumber": "1234",
                     "payTypeCode": {

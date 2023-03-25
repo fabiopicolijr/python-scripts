@@ -5,24 +5,30 @@ from marketplace.behave.classes.api_body import ApiBody
 
 @dataclass()
 class Api:
-    version: str
-    service: str
-    prefix: str
     name: str
+    prefix: str
+    service: str
+    version: str
+    operation: str
     method: str
-    filename_begin: str
-    title: str = field(init=False, repr=True)
+    url_service: str
     body: ApiBody = field(init=False, repr=True)
 
     def __post_init__(self):
-        self.title = f'{self.prefix} {self.name}'.title()
-        self.method = self.method.lower()
+        event_title = f'{"-".join(self.name.split())}.{self.operation}'.lower()
+        event_name_code = f'{self.name} {self.operation}'
 
-        if not self.filename_begin:
-            self.filename_begin = f"{'_'.join(self.title.split()).lower()}"
+        if self.prefix:
+            event_title = f'{self.prefix}.{event_title}'.lower()
+
+        if self.prefix:
+            event_name_code = f'{self.prefix} {event_name_code}'
+
+        if self.method == 'POST' and self.operation:
+            self.service = f'{self.service} {self.operation}'
 
         self.body = ApiBody(
-            service_category_code=self.service,
-            event_title=f'{self.prefix.lower()}.{"-".join(self.name.split()).lower()}.{self.method}',
-            event_name_code=f'{self.title} {self.method.capitalize()}'
+            service_category_code=self.url_service,
+            event_title=event_title,
+            event_name_code=event_name_code
         )
