@@ -2,11 +2,11 @@ import os
 
 # path = 'C:/Users/fabio.picoli/projects/fabiopicolijr/python-scripts/marketplace/behave/files/templates/post
 # /body_and_output'
-path = 'C:/Users/fabio.picoli/projects/fabiopicolijr/python-scripts/marketplace/behave/files/output'
+path = 'C:/Users/fabio.picoli/projects/fabiopicolijr/python-scripts/marketplace/behave/files/templates/automation/headers'
 
 
-old_piece = 'worker_pay_distribution'
-new_piece = 'worker_pay_distributions'
+old_piece = '[[API_NAME]]'
+new_piece = '[[FILENAME_BEGIN]]'
 
 files_count = 0
 files_renamed_count = 0

@@ -1,0 +1,64 @@
+{
+  "events": [
+    {
+      "eventID": "identificadores_invalidos_400",
+      "serviceCategoryCode": {
+        "shortName": ""
+      },
+      "eventNameCode": {
+        "shortName": "Pay Data Inputs Add"
+      },
+      "eventTitle": "pay-data-inputs.add",
+      "recordDateTime": "2023-01-18T07:50:00Z",
+      "creationDateTime": "2023-01-18T07:50:00Z",
+      "effectiveDateTime": "2023-01-20T15:15:00Z",
+      "data": {
+        "eventContext": {
+          "worker": {
+            "associateOID": "10565022-00001188",
+            "workerID": {
+              "idValue": "001-00000731"
+            }
+          }
+        },
+        "transform": {
+          "payDataInputs": [
+            {
+              "payeePayInputs": [
+                {
+                  "associateOID": "10565022-00001118",
+                  "payeeID": {
+                    "idValue": "001-00001298"
+                  },
+                  "payNumber": "1234",
+                  "payTypeCode": {
+                    "shortName": "MENSAL 11/2022"
+                  },
+                  "payrollProfilePayInputs": [
+                    {
+                      "payInputs": [
+                        {
+                          "earningsInputs": [
+                            {
+                              "earningCode": {
+                                "codeValue": "1-001-0015"
+                              },
+                              "rate": {
+                                "rateValue": 7000.0
+                              },
+                              "numberOfHours": 1
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

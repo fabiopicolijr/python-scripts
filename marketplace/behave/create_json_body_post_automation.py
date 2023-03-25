@@ -42,8 +42,6 @@ def main():
         erase_path(PATH['output'])
         process_files(api, json_files_path, accept_only='json')
         process_files(api, behave_files_path)
-
-        # TODO: process_filenames
     except Exception as e:
         show_error_message(e)
     else:

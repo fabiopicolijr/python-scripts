@@ -1,0 +1,48 @@
+{
+  "events": [
+    {
+      "eventID": "mais_de_um_objeto_400",
+      "serviceCategoryCode": {
+        "shortName": "PAYROLL"
+      },
+      "eventNameCode": {
+        "shortName": "Pay Data Inputs Add"
+      },
+      "eventTitle": "pay-data-inputs.add",
+      "recordDateTime": "2014-01-01T00:00:00Z",
+      "creationDateTime": "2014-01-01T00:00:00Z",
+      "data": {
+        "eventContext": {
+          "worker": {
+            "associateOID": "10565022-00001188",
+            "workerID": {
+              "idValue": "001-00000731"
+            }
+          }
+        }
+      }
+    },
+    {
+      "eventID": "mais_de_um_objeto_400",
+      "serviceCategoryCode": {
+        "shortName": "PAYROLL"
+      },
+      "eventNameCode": {
+        "shortName": "Pay Data Inputs Add"
+      },
+      "eventTitle": "pay-data-inputs.add",
+      "recordDateTime": "2014-01-01T00:00:00Z",
+      "creationDateTime": "2014-01-01T00:00:00Z",
+      "data": {
+        "eventContext": {
+          "worker": {
+            "associateOID": "10565022-00001188",
+            "workerID": {
+              "idValue": "001-00000731"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

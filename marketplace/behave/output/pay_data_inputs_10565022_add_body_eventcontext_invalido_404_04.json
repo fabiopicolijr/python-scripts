@@ -1,27 +1,26 @@
 {
   "events": [
     {
-      "eventID": "headers_invalidos_406",
+      "eventID": "eventcontext_invalido_404",
       "serviceCategoryCode": {
-        "shortName": "[[SERVICE_SHORTNAME]]"
+        "shortName": "PAYROLL"
       },
       "eventNameCode": {
-        "shortName": "[[EVENT_SHORTNAME]]"
+        "shortName": "Pay Data Inputs Add"
       },
-      "eventTitle": "[[EVENT_TITLE]]",
+      "eventTitle": "pay-data-inputs.add",
       "recordDateTime": "2014-01-01T00:00:00Z",
       "creationDateTime": "2014-01-01T00:00:00Z",
       "effectiveDateTime": "2023-01-20T15:15:00Z",
       "data": {
         "eventContext": {
           "worker": {
-            "associateOID": "10565022-00001188",
+            "associateOID": "00009542",
             "workerID": {
-              "idValue": "001-00000731"
+              "idValue": "100-00000028"
             }
           }
-        },
-        [[TRANSFORM]]
+        }
       }
     }
   ]

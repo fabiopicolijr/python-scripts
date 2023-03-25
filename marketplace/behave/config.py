@@ -11,7 +11,7 @@ FILE = {
 
 PATH = {
     'templates': f'{ROOT_PATH}/files/templates',
-    'output': f'{ROOT_PATH}/files/output'
+    'output': f'{ROOT_PATH}/output'
 }
 
 INTERPOLATION_SCHEMA = InterpolationSchema()

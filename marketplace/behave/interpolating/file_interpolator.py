@@ -1,5 +1,4 @@
 import json
-from json_stream.dump import JSONStreamEncoder
 
 from marketplace.behave.config import PATH, FILE, INTERPOLATION_SCHEMA
 from marketplace.behave.classes.api import Api

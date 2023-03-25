@@ -8,7 +8,7 @@ Feature: Worker Pay Distributions v1 (BR)
     @api
     @br
     @comparando_resposta
-    @post
+    @[[API_METHOD]]
     @status_200
     @sucesso
     @worker_pay_distributions_v1
@@ -30,7 +30,7 @@ Feature: Worker Pay Distributions v1 (BR)
     @br
     @erro
     @eventcontext_invalido
-    @post
+    @[[API_METHOD]]
     @status_404
     @worker_pay_distributions_v1
     @cadastrar_eventcontext_invalido
@@ -57,7 +57,7 @@ Feature: Worker Pay Distributions v1 (BR)
     @br
     @erro
     @identificadores_invalidos
-    @post
+    @[[API_METHOD]]
     @status_400
     @worker_pay_distributions_v1
     @cadastrar_identificadores_invalidos
@@ -92,7 +92,7 @@ Feature: Worker Pay Distributions v1 (BR)
     @api
     @br
     @mais_de_um_objeto
-    @post
+    @[[API_METHOD]]
     @status_400
     @worker_pay_distributions_v1
     @cadastrar_mais_de_um_objeto
@@ -113,7 +113,7 @@ Feature: Worker Pay Distributions v1 (BR)
     @api
     @br
     @erro
-    @post
+    @[[API_METHOD]]
     @queries_invalidas
     @status_406
     @worker_pay_distributions_v1
@@ -141,7 +141,7 @@ Feature: Worker Pay Distributions v1 (BR)
     @api
     @br
     @erro
-    @post
+    @[[API_METHOD]]
     @status_400
     @transform_invalido
     @worker_pay_distributions_v1
@@ -160,7 +160,7 @@ Feature: Worker Pay Distributions v1 (BR)
     @cadastrar
     @api
     @br
-    @post
+    @[[API_METHOD]]
     @status_200
     @sucesso
     @usuarios_ativos
@@ -180,7 +180,7 @@ Feature: Worker Pay Distributions v1 (BR)
     @api
     @br
     @erro
-    @post
+    @[[API_METHOD]]
     @status_404
     @usuarios_com_restricoes
     @worker_pay_distributions_v1
@@ -201,7 +201,7 @@ Feature: Worker Pay Distributions v1 (BR)
     @api
     @br
     @erro
-    @post
+    @[[API_METHOD]]
     @status_400
     @usuarios_inativos
     @worker_pay_distributions_v1
@@ -221,7 +221,7 @@ Feature: Worker Pay Distributions v1 (BR)
     @api
     @br
     @erro
-    @post
+    @[[API_METHOD]]
     @status_404
     @worker_pay_distributions_v1
     @worker_demitido
