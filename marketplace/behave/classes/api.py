@@ -5,6 +5,7 @@ from marketplace.behave.classes.api_body import ApiBody
 
 @dataclass()
 class Api:
+    rule_code: str
     name: str
     prefix: str
     service: str

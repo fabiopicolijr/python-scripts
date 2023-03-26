@@ -1,27 +1,33 @@
-# TODO: change TASKS to CONFIGS, like:
-#  id: 1, 'automation_marketplace_headers'
-#  id: 2, 'automation_marketplace_body_and_output'
-#  id: 3, 'progress_headers'
-#  id: 4, 'progress_body_and_output'
-#  each id will be an folder inside templates
+# Parameters config
 
-ALPHA_TASKS = ['headers', 'body_and_output']
+def get_dict_key_index_by_value(_dict: dict, value: str):
+    dict_keys = list(_dict.keys())
+    dict_values = list(_dict.values())
 
-# Required fields
-alpha_task = ALPHA_TASKS[1]
+    return dict_keys[dict_values.index(value)]
 
+
+rules = {
+    1: 'marketplace_api_headers',
+    2: 'marketplace_api_body_and_output',
+}
+
+# rules_values = list(rules.values())
+
+# Required parameters
+rule = 'marketplace_api_body_and_output'
 api_name = 'Pay Data Inputs'
 api_service = 'Pay Data Input'
 api_method = 'POST'
 api_version = 'V1'
 api_url_service = 'PAYROLL'
 
-# Optional fields
+# Optional parameters
 api_operation = 'Add'
 api_prefix = ''
 
 PARAMETERS = {
-    'task': alpha_task,
+    'rule_code': get_dict_key_index_by_value(rules, rule),
     'api_name': api_name,
     'api_prefix': api_prefix,
     'api_service': api_service,
@@ -30,4 +36,3 @@ PARAMETERS = {
     'api_method': api_method,
     'api_url_service': api_url_service
 }
-

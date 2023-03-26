@@ -1,0 +1,5 @@
+# exclude everything
+# marketplace/behave/files/*
+
+# exception to the rule
+# !marketplace/behave/files/.gitkeep

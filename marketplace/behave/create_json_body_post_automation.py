@@ -8,25 +8,26 @@ from marketplace.behave.classes.api import Api
 from marketplace.behave.interpolating.file_interpolator import interpolate_file
 
 
-def process_files(api: Api, path: str, accept_only=None):
+def process_templates(api: Api, path: str, accept_only=None):
     for filename in os.listdir(path):
         if accept_only and not filename.endswith(accept_only):
             continue
 
         file = f'{path}/{filename}'
-        process_file(api, file)
+        process_template(api, file)
 
 
-def process_file(api: Api, file):
+def process_template(api: Api, file):
     try:
         interpolate_file(api, file)
     except Exception as e:
-        show_error_message(e, process_file.__name__)
+        show_error_message(e, process_template.__name__)
 
 
 def main():
     try:
         api = Api(
+            rule_code=PARAMETERS['rule_code'],
             name=PARAMETERS['api_name'],
             prefix=PARAMETERS['api_prefix'],
             service=PARAMETERS['api_service'],
@@ -36,12 +37,10 @@ def main():
             url_service=PARAMETERS['api_url_service']
         )
 
-        json_files_path = f"{PATH['templates']}/{api.method}/{PARAMETERS['task']}"
-        behave_files_path = f"{PATH['templates']}/automation/{PARAMETERS['task']}"
+        templates_path = f"{PATH['files']}/rule_{api.rule_code}/templates"
 
         erase_path(PATH['output'])
-        process_files(api, json_files_path, accept_only='json')
-        process_files(api, behave_files_path)
+        process_templates(api, templates_path)
     except Exception as e:
         show_error_message(e)
     else:

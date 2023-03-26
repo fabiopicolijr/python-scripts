@@ -1,6 +1,6 @@
 import json
 
-from marketplace.behave.config import PATH, FILE, INTERPOLATION_SCHEMA
+from marketplace.behave.config import PATH, INTERPOLATION_SCHEMA
 from marketplace.behave.classes.api import Api
 
 
@@ -22,13 +22,13 @@ def interpolate_file(api: Api, template_file):
 
 def interpolate_filename(filename, api):
     filepiece_api_operation = api.operation.lower()
-    filepiece_api_name = f'{"_".join(api.name.split())}'.lower()
+    api_name_underlined = f'{"_".join(api.name.split())}'.lower()
 
     if api.prefix:
-        filepiece_api_name = f'{api.prefix}.{filepiece_api_name}'.lower()
+        api_name_underlined = f'{api.prefix}.{api_name_underlined}'.lower()
 
     new_file = filename \
-        .replace(INTERPOLATION_SCHEMA.filename_begin, filepiece_api_name) \
+        .replace(INTERPOLATION_SCHEMA.filename_begin, api_name_underlined) \
         .replace(INTERPOLATION_SCHEMA.method, filepiece_api_operation)
 
     return new_file
@@ -40,11 +40,15 @@ def interpolate_content(content, api):
         .replace(INTERPOLATION_SCHEMA.event_title, api.body.event_title) \
         .replace(INTERPOLATION_SCHEMA.service_category_code, api.body.service_category_code)
 
-    with open(FILE['body_transform_tag'], 'r') as stream:
+    tag_transform_file = f"{PATH['files']}/rule_{api.rule_code}/injectors/body_transform_tag.json"
+
+    with open(tag_transform_file, 'r') as stream:
         file_content = stream.read()
         content = content.replace(INTERPOLATION_SCHEMA.transform, file_content)
 
-    with open(FILE['body_output_tag'], 'r') as stream:
+    tag_output_file = f"{PATH['files']}/rule_{api.rule_code}/injectors/body_output_tag.json"
+
+    with open(tag_output_file, 'r') as stream:
         file_content = stream.read()
         content = content.replace(INTERPOLATION_SCHEMA.output, file_content)
 

@@ -1,0 +1,27 @@
+{
+  "events": [
+    {
+      "eventID": "eventcontext_invalido_404",
+      "serviceCategoryCode": {
+        "shortName": "[[SERVICE_SHORTNAME]]"
+      },
+      "eventNameCode": {
+        "shortName": "[[EVENT_SHORTNAME]]"
+      },
+      "eventTitle": "[[EVENT_TITLE]]",
+      "recordDateTime": "2014-01-01T00:00:00Z",
+      "creationDateTime": "2014-01-01T00:00:00Z",
+      "effectiveDateTime": "2023-01-20T15:15:00Z",
+      "data": {
+        "eventContext": {
+          "worker": {
+            "associateOID": "217651535-00009542",
+            "workerID": {
+              "idValue": "invalido"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
