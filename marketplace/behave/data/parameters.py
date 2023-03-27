@@ -12,8 +12,6 @@ rules = {
     2: 'marketplace_api_body_and_output',
 }
 
-# rules_values = list(rules.values())
-
 # Required parameters
 rule = 'marketplace_api_body_and_output'
 api_name = 'Pay Data Inputs'
