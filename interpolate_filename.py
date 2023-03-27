@@ -1,7 +1,5 @@
 import os
 
-# path = 'C:/Users/fabio.picoli/projects/fabiopicolijr/python-scripts/marketplace/behave/files/templates/post
-# /body_and_output'
 path = 'C:/Users/fabio.picoli/projects/fabiopicolijr/python-scripts/marketplace/behave/files/templates/automation/headers'
 
 
@@ -10,6 +8,8 @@ new_piece = '[[FILENAME_BEGIN]]'
 
 files_count = 0
 files_renamed_count = 0
+
+test = f'{files_count} test'
 
 print(f'=> Objective: Change "{old_piece}" to "{new_piece}" of all files into folder "{path}"\n')
 print('processing...')

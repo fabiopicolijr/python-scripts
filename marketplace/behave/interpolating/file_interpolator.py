@@ -4,7 +4,7 @@ from marketplace.behave.config import PATH, INTERPOLATION_SCHEMA
 from marketplace.behave.classes.api import Api
 
 
-def interpolate_file(api: Api, template_file):
+def interpolate_file(api: Api, template_file: str):
     file = template_file.split('/')[-1]
 
     new_file = interpolate_filename(file, api)

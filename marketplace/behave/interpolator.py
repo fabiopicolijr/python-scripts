@@ -40,6 +40,9 @@ def main():
         templates_path = f"{PATH['files']}/rule_{api.rule_code}/templates"
 
         erase_path(PATH['output'])
+
+        print(templates_path)
+
         process_templates(api, templates_path)
     except Exception as e:
         show_error_message(e)

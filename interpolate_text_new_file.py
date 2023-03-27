@@ -1,7 +1,5 @@
 import os
 
-print('\n**** WELCOME TO "fabiopicolijr" PYTHON SCRIPTS ****\n')
-
 template_path = 'C:/Users/fabio.picoli/Documents/adp/templates/ala_marketplace/post/transform'
 output_path = 'C:/Users/fabio.picoli/Documents/adp/output'
 old_text = 'worker.birth-date.change'
