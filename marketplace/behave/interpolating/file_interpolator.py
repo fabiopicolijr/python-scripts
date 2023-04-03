@@ -22,7 +22,7 @@ def interpolate_file(api: Api, template_file: str):
 
 def interpolate_filename(filename, api):
     filepiece_api_operation = api.operation.lower()
-    api_name_underlined = f'{"_".join(api.name.split())}'.lower()
+    api_name_underlined = f'{"_".join(api.name.split())}_{api.version}'.lower()
 
     if api.prefix:
         api_name_underlined = f'{api.prefix}.{api_name_underlined}'.lower()

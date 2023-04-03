@@ -1,7 +1,7 @@
 {
   "events": [
     {
-      "eventID": "usuarios_com_restricoes_404",
+      "eventID": "worker_demitido_404",
       "serviceCategoryCode": {
         "shortName": "[[SERVICE_SHORTNAME]]"
       },

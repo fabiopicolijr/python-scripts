@@ -30,3 +30,15 @@ def obter_conteudo_arquivo(nome_arquivo: str) -> str:
     conteudo_arquivo = json.loads(open(caminho_arquivo, encoding="utf-8").read())
 
     return conteudo_arquivo
+
+
+# another
+
+# template_path = 'C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace/marketplace/features/files/br'
+template_path = 'C:/Users/fabio.picoli/projects/fabiopicolijr/python-scripts/marketplace/behave/output'
+
+for folder, _, files in os.walk(template_path):
+    for file in files:
+        if not file.endswith(".json"):
+            continue
+        print(f'{folder}=>{file}')
