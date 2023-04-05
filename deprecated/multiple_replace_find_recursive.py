@@ -6,7 +6,7 @@ new_event_name_code_method = new_method.lower()
 new_event_title_method = new_method.capitalize()
 
 # CONST VARIABLES
-TEMPLATES_PATH = f'C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace/marketplace/features/files/br/inputs/412/pay_data_inputs/{new_method}'
+TEMPLATES_PATH = f'C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace/marketplace/features/files/br/inputs/400/pay_data_inputs/{new_method}'
 # TEMPLATES_PATH = 'C:/Users/fabio.picoli/projects/fabiopicolijr/python-scripts/marketplace/behave/output'
 
 REPLACE_TAGS = [
