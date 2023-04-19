@@ -2,10 +2,10 @@ from utils.multiple_replace import MultipleReplace
 
 # TEMP VARIABLES
 old_method = "add"
-new_method = "modify"
+new_method = "replace"
 
 # CONST VARIABLES
-in_folder = f'C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace/marketplace/features/files/br/inputs/400/pay_data_inputs/modify'
+in_folder = f'C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace/marketplace/features/files/br/inputs/400/pay_data_inputs/{new_method}'
 
 search_replace = [
     {

@@ -5,7 +5,7 @@ method = "replace"
 
 # CONST VARIABLES
 
-TEMPLATES_PATH = f"C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace/marketplace/features/files/br/inputs/412/pay_data_inputs/{method}"
+TEMPLATES_PATH = f"C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace/marketplace/features/files/br/inputs/400/pay_data_inputs/{method}"
 
 REPLACE_TAGS = [
     {
