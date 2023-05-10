@@ -1,10 +1,11 @@
 import os
 
-path = f"C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace/marketplace/features/files/br/inputs/400/pay_data_inputs/replace"
+# path = f"C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace/marketplace/features/files/br/inputs/400/pay_data_inputs/replace"
+path = "C:/Users/fabio.picoli/projects/fabiopicolijr/python-scripts/marketplace/behave/output"
 search_replace = [
     {
-        "old": '_add_',
-        "new": f'_replace_'
+        "old": 'worker_leave',
+        "new": 'wl'
     }
 ]
 

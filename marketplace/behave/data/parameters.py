@@ -10,18 +10,19 @@ def get_dict_key_index_by_value(_dict: dict, value: str):
 rules = {
     1: 'marketplace_api_headers',
     2: 'marketplace_api_body_and_output',
+    3: 'marketplace_api_body_and_output_without_worker',
 }
 
 # Required parameters
-rule = 'marketplace_api_body_and_output'
-api_name = 'Pay Data Inputs'
-api_service = 'Pay Data Input'
+rule = 'marketplace_api_body_and_output_without_worker'
+api_name = 'Worker Leave Absence'
+api_service = 'request leave of absence'
 api_method = 'POST'
 api_version = 'V1'
-api_url_service = 'PAYROLL'
+api_url_service = 'HR'
 
 # Optional parameters
-api_operation = 'Add'
+api_operation = 'Request'
 api_prefix = ''
 
 PARAMETERS = {

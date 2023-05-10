@@ -10,6 +10,8 @@ def interpolate_file(api: Api, template_file: str):
     new_file = interpolate_filename(file, api)
     output_file = f"{PATH['output']}/{new_file}"
 
+    print(file)
+
     with open(template_file, 'r') as stream, open(output_file, 'w') as stream_write:
         content = stream.read()
         new_content = interpolate_content(content, api)

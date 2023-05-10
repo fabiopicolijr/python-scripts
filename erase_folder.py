@@ -1,4 +1,5 @@
-import os, shutil
+import os
+import shutil
 
 def erase_folder(from_folder):    
     for filename in os.listdir(from_folder):

@@ -1,0 +1,24 @@
+{
+  "events": [
+    {
+      "eventID": "usuarios_inativos_400",
+      "serviceCategoryCode": {
+        "shortName": "[[SERVICE_SHORTNAME]]"
+      },
+      "eventNameCode": {
+        "shortName": "[[EVENT_SHORTNAME]]"
+      },
+      "eventTitle": "[[EVENT_TITLE]]",
+      "recordDateTime": "2014-01-01T00:00:00Z",
+      "creationDateTime": "2014-01-01T00:00:00Z",
+      "data": {
+        "eventContext": {
+          "associateOID": "217651535-00009844",
+          "workerID": {
+            "idValue": "100-00009409"
+          }
+        }
+      }
+    }
+  ]
+}

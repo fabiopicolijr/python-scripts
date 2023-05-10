@@ -1,0 +1,25 @@
+"transform": {
+    "workerLeave": {
+      "leaveAbsence": {
+        "statutoryAbsenceCode": {
+          "codeValue": "1",
+          "shortName": "Work Related Accident - Transit"
+        },
+        "startDateTime": "2014-01-01T00:00:00Z",
+        "expectedEndDateTime": "2014-01-20T00:00:00Z",
+        "leaveDuration": {
+          "quantityValue": 20
+        },
+        "leaveTypeCode": {
+          "codeValue": "SE"
+        },
+        "paymentStatusCode": {
+          "codeValue": "1234567891234",
+          "shortName": "Employer"
+        },
+        "comment": {
+          "textValue": "comentario"
+        }
+      }
+    }
+  }
