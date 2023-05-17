@@ -56,7 +56,7 @@ def check_line_groups_order(line_groups):
 message_ok = True
 
 # Replace 'filename.txt' with the actual name of your file
-filename = "C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace/marketplace/features/br_worker_leave_request_return_v1.feature"
+filename = "C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace/marketplace/features/br_worker_leave_request_return_v1.feature"  # noqa: E501
 
 # Read the file and obtain lines
 lines = read_file(filename)
