@@ -35,10 +35,10 @@ def obter_conteudo_arquivo(nome_arquivo: str) -> str:
 # another
 
 # template_path = 'C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace/marketplace/features/files/br'
-template_path = '/marketplace/behave/output'
+template_path = "/marketplace/behave/output"
 
 for folder, _, files in os.walk(template_path):
     for file in files:
         if not file.endswith(".json"):
             continue
-        print(f'{folder}=>{file}')
+        print(f"{folder}=>{file}")

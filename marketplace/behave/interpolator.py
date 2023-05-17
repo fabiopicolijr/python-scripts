@@ -13,7 +13,7 @@ def process_templates(api: Api, path: str, accept_only=None):
         if accept_only and not filename.endswith(accept_only):
             continue
 
-        file = f'{path}/{filename}'
+        file = f"{path}/{filename}"
         process_template(api, file)
 
 
@@ -27,19 +27,19 @@ def process_template(api: Api, file):
 def main():
     try:
         api = Api(
-            rule_code=PARAMETERS['rule_code'],
-            name=PARAMETERS['api_name'],
-            prefix=PARAMETERS['api_prefix'],
-            service=PARAMETERS['api_service'],
-            version=PARAMETERS['api_version'],
-            operation=PARAMETERS['api_operation'],
-            method=PARAMETERS['api_method'],
-            url_service=PARAMETERS['api_url_service']
+            rule_code=PARAMETERS["rule_code"],
+            name=PARAMETERS["api_name"],
+            prefix=PARAMETERS["api_prefix"],
+            service=PARAMETERS["api_service"],
+            version=PARAMETERS["api_version"],
+            operation=PARAMETERS["api_operation"],
+            method=PARAMETERS["api_method"],
+            url_service=PARAMETERS["api_url_service"],
         )
 
         templates_path = f"{PATH['files']}/rule_{api.rule_code}/templates"
 
-        erase_path(PATH['output'])
+        erase_path(PATH["output"])
         process_templates(api, templates_path)
     except Exception as e:
         show_error_message(e)
@@ -47,5 +47,5 @@ def main():
         print(f"Process finished with success!\nFind your files at: {PATH['output']}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

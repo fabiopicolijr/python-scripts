@@ -5,7 +5,7 @@ from treelib import Tree
 
 
 def interpolate_procedure_read_change_json(data):
-    data = data.replace("{{PROCEDURE_NAME}}", context['procedureName'])
+    data = data.replace("{{PROCEDURE_NAME}}", context["procedureName"])
     data = interpolate_transform(data)
 
     return data
@@ -25,9 +25,9 @@ def interpolate_transform(data):
     :param data:
     :return:
     """
-    tree = json_to_tree(context['paths']['schemas']['post'])
+    tree = json_to_tree(context["paths"]["schemas"]["post"])
     # tree.show()
-    subtree_transform = tree.subtree(nid='transform')
+    subtree_transform = tree.subtree(nid="transform")
 
     progress_line_template = 'Has("{{FIELD}}")'
 
@@ -42,31 +42,35 @@ def interpolate_transform(data):
 
         for parent in parent_nodes:
             parents_line_template = get_parents_line_template(parent.data.type_)
-            line = parents_line_template.replace('{{PARENT}}', parent.identifier)
+            line = parents_line_template.replace("{{PARENT}}", parent.identifier)
             parents_line.append(line)
 
-        progress_line = progress_line_template.replace('{{FIELD}}', node)
+        progress_line = progress_line_template.replace("{{FIELD}}", node)
 
-        new_transform.append('and vobj-json-element:GetJsonObject("data"):' + ''.join(parents_line) + progress_line)
+        new_transform.append(
+            'and vobj-json-element:GetJsonObject("data"):'
+            + "".join(parents_line)
+            + progress_line
+        )
 
-    data = data.replace('{{TRANSFORM}}', '\n'.join(new_transform))
+    data = data.replace("{{TRANSFORM}}", "\n".join(new_transform))
 
     return data
 
 
 def main():
-    template = context['paths']['templates']['procedure_read_change_json']
-    output = context['paths']['outputs']['procedure_read_change_json']
+    template = context["paths"]["templates"]["procedure_read_change_json"]
+    output = context["paths"]["outputs"]["procedure_read_change_json"]
 
-    with open(template) as stream_template, open(output, 'w') as stream_output:
+    with open(template) as stream_template, open(output, "w") as stream_output:
         data = stream_template.read()
         data = interpolate_procedure_read_change_json(data)
         # print(data)
         stream_output.write(data)
-        print(f'Main -> Arquivo gerado: {output}')
+        print(f"Main -> Arquivo gerado: {output}")
 
-    print('Main -> EOF')
+    print("Main -> EOF")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

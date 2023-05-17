@@ -3,20 +3,22 @@ from config import context
 
 print('\n**** WELCOME TO "fabiopicolijr" PYTHON SCRIPTS ****\n')
 
-path = 'C:/Users/fabio.picoli/Documents/adp/tasks/marketplace/_models/post/headers/'
+path = "C:/Users/fabio.picoli/Documents/adp/tasks/marketplace/_models/post/headers/"
 
 # JSON TEXT PARAMETERS
-old_shortname = 'worker.pay-distributions.change'
-old_event_title = 'Worker Pay Distributions Change'
+old_shortname = "worker.pay-distributions.change"
+old_event_title = "Worker Pay Distributions Change"
 
-new_shortname = 'worker.deposit-account.add'
-new_event_title = 'Worker Deposit Account Add'
+new_shortname = "worker.deposit-account.add"
+new_event_title = "Worker Deposit Account Add"
 
 # FEATURE TEXT PARAMETERS
 # old_feature_name # STOPPED HERE
 
-print(f'=> Objective: Change shortName and eventTitle from files inside folder "{path}"\n')
-print('processing...\n')
+print(
+    f'=> Objective: Change shortName and eventTitle from files inside folder "{path}"\n'
+)
+print("processing...\n")
 
 json_files_count = 0
 JSON_FILES_REPLACED_COUNT = 0
@@ -25,28 +27,31 @@ JSON_FILES_REPLACED_COUNT = 0
 def change_json_file(json_file):
     file_path = path + json_file
 
-    with open(file_path, 'r') as stream:
+    with open(file_path, "r") as stream:
         file_data = stream.read()
-        new_file_data = file_data.replace(old_shortname, new_shortname).replace(old_event_title, new_event_title)
+        new_file_data = file_data.replace(old_shortname, new_shortname).replace(
+            old_event_title, new_event_title
+        )
 
-        with open(file_path, 'w') as stream_write:
+        with open(file_path, "w") as stream_write:
             stream_write.write(new_file_data)
 
 
 def change_feature_file(feature_file):
     file_path = path + feature_file
 
-    with open(file_path, 'r') as stream:
+    with open(file_path, "r") as stream:
         file_data = stream.read()
-        new_file_data = file_data.replace(old_shortname, new_shortname).replace(old_event_title, new_event_title)
+        new_file_data = file_data.replace(old_shortname, new_shortname).replace(
+            old_event_title, new_event_title
+        )
 
-        with open(file_path, 'w') as stream_write:
+        with open(file_path, "w") as stream_write:
             stream_write.write(new_file_data)
 
 
 for filename in os.listdir(path):
-
-    if filename.endswith('.json'):
+    if filename.endswith(".json"):
         change_json_file(filename)
 
     # if filename.endswith('.feature'):

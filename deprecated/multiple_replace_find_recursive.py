@@ -6,7 +6,7 @@ new_event_name_code_method = new_method.lower()
 new_event_title_method = new_method.capitalize()
 
 # CONST VARIABLES
-TEMPLATES_PATH = f'C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace/marketplace/features/files/br/inputs/400/pay_data_inputs/{new_method}'
+TEMPLATES_PATH = f"C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace/marketplace/features/files/br/inputs/400/pay_data_inputs/{new_method}"
 # TEMPLATES_PATH = 'C:/Users/fabio.picoli/projects/fabiopicolijr/python-scripts/marketplace/behave/output'
 
 REPLACE_TAGS = [
@@ -40,19 +40,21 @@ def process_template(template_path: str, filename: str):
             raise Exception(f'file "{filename}" not allowed to change.')
 
         FILES_COUNT += 1
-        template_file = f'{template_path}/{filename}'
+        template_file = f"{template_path}/{filename}"
 
-        with open(template_file, 'r+') as stream:
+        with open(template_file, "r+") as stream:
             try:
                 file_data = stream.read()
             except Exception as err:
                 # raise Exception(f'{template_file} {err}')
-                raise Exception(f'{filename} {err}')
+                raise Exception(f"{filename} {err}")
 
             for replace_tag in REPLACE_TAGS:
-                if file_data.find(replace_tag['old']) > 0:
+                if file_data.find(replace_tag["old"]) > 0:
                     # print(f'Found: {template_file})
-                    file_data = file_data.replace(replace_tag['old'], replace_tag['new'])
+                    file_data = file_data.replace(
+                        replace_tag["old"], replace_tag["new"]
+                    )
                     FILES_REPLACES_COUNT += 1
 
             stream.truncate(0)
@@ -61,14 +63,16 @@ def process_template(template_path: str, filename: str):
             stream.write(file_data)
 
     except Exception as err:
-        print(f'\twarning: {err}')
+        print(f"\twarning: {err}")
 
 
-if __name__ == '__main__':
-    print('Processing...')
+if __name__ == "__main__":
+    print("Processing...")
 
     try:
         process_templates()
-        print(f'\nProcess finished: Replaced "{FILES_REPLACES_COUNT}" times in "{FILES_COUNT}" files.')
+        print(
+            f'\nProcess finished: Replaced "{FILES_REPLACES_COUNT}" times in "{FILES_COUNT}" files.'
+        )
     except Exception as e:
         print(e)

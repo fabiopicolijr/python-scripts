@@ -17,17 +17,17 @@ class Api:
 
     def __post_init__(self):
         event_name_code = f'{"-".join(self.name.split())}.{self.operation}'.lower()
-        event_title = f'{self.name} {self.operation}'
+        event_title = f"{self.name} {self.operation}"
 
         if self.prefix:
-            event_name_code = f'{self.prefix}.{event_name_code}'.lower()
-            event_title = f'{self.prefix} {event_title}'
+            event_name_code = f"{self.prefix}.{event_name_code}".lower()
+            event_title = f"{self.prefix} {event_title}"
 
-        if self.method == 'POST' and self.operation:
-            self.service = f'{self.service} {self.operation}'
+        if self.method == "POST" and self.operation:
+            self.service = f"{self.service} {self.operation}"
 
         self.body = ApiBody(
             service_category_code=self.url_service,
             event_title=event_title,
-            event_name_code=event_name_code
+            event_name_code=event_name_code,
         )

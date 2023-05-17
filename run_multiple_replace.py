@@ -1,7 +1,7 @@
 from utils.multiple_replace import MultipleReplace
 
 # in_folder = f'C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace/marketplace/features/files/br/inputs/400/pay_data_inputs/replace'
-in_folder = f'C:/Users/fabio.picoli/projects/fabiopicolijr/python-scripts/marketplace/behave/files/rule_3/templates'
+in_folder = f"C:/Users/fabio.picoli/projects/fabiopicolijr/python-scripts/marketplace/behave/files/rule_3/templates"
 search_replace = [
     {
         "old": '"worker": {',
@@ -13,8 +13,8 @@ search_replace = [
     # },
 ]
 
-if __name__ == '__main__':
-    print(f'Processing...')
+if __name__ == "__main__":
+    print(f"Processing...")
 
     mr = MultipleReplace(search_replace, in_folder)
 

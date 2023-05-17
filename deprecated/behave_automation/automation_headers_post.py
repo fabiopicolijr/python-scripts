@@ -3,14 +3,14 @@ from config import context
 
 print(f'=> Objective: Generate Marketplace HEADERS"\n')
 
-path = context['paths']['templates']['post']['headers']['inputs'] + '\\'
+path = context["paths"]["templates"]["post"]["headers"]["inputs"] + "\\"
 
 # JSON TEXT PARAMETERS
-old_shortname = 'worker.pay-distributions.change'
-old_event_title = 'Worker Pay Distributions Change'
+old_shortname = "worker.pay-distributions.change"
+old_event_title = "Worker Pay Distributions Change"
 
-new_shortname = 'worker.deposit-account.add'
-new_event_title = 'Worker Deposit Account Add'
+new_shortname = "worker.deposit-account.add"
+new_event_title = "Worker Deposit Account Add"
 
 # FEATURE TEXT PARAMETERS
 # old_feature_name # STOPPED HERE
@@ -22,11 +22,13 @@ JSON_FILES_REPLACED_COUNT = 0
 def replace_template(json_file):
     file_path = path + json_file
 
-    with open(file_path, 'r') as stream:
+    with open(file_path, "r") as stream:
         file_data = stream.read()
-        new_file_data = file_data.replace(old_shortname, new_shortname).replace(old_event_title, new_event_title)
+        new_file_data = file_data.replace(old_shortname, new_shortname).replace(
+            old_event_title, new_event_title
+        )
 
-        with open(file_path, 'w') as stream_write:
+        with open(file_path, "w") as stream_write:
             stream_write.write(new_file_data)
 
 
@@ -42,12 +44,11 @@ def replace_template(json_file):
 
 
 for filename in os.listdir(path):
-
-    if filename.endswith('.json'):
+    if filename.endswith(".json"):
         replace_template(filename)
 
     # if filename.endswith('.feature'):
     #     change_feature_file(filename)
 
 # print(f'Changed "{json_files_replaced_count}" of "{json_files_count}" files.')
-print('=> EOF')
+print("=> EOF")

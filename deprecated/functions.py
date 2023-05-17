@@ -32,6 +32,6 @@ def json_to_tree(api_schema_file: str) -> TreeManager:
     api_schema_tree.dict_to_tree(api_schema_data)
 
     # api_schema_tree.show()
-    print('Funtions -> json_to_tree -> Tree converted!')
+    print("Funtions -> json_to_tree -> Tree converted!")
 
     return api_schema_tree

@@ -8,6 +8,7 @@ class TreeManager(Tree):
     TreeManager
     Responsible for manage Tree operations into mrbighand
     """
+
     def __init__(self, tree=None, deep=False, node_class=None, identifier=None):
         super().__init__()
         self.reserved_fields = ["id"]
@@ -92,7 +93,7 @@ class TreeManager(Tree):
             self[node_identifier]
             for node_identifier in self.expand_tree(mode=Tree.WIDTH)
             if self[node_identifier].data.related_list_id == related_id
-               and self[node_identifier].identifier != related_id
+            and self[node_identifier].identifier != related_id
         ]
 
     def get_leaves_by_related(self, related_id):
