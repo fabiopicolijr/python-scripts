@@ -47,9 +47,21 @@ def check_line_groups_order(line_groups):
         first_unordered_register = next(
             x for x, y in zip(registers, sorted_registers) if x != y
         )
+
         print_colored(
             f"❌ Scenario: {first_unordered_register} is unordered.", color="red"
         )
+
+        # Find the index where the order is incorrect
+        index = registers.index(first_unordered_register)
+
+        # Get the correct order of registers
+        correct_order = sorted_registers[index:]
+
+        print("Correct order (from the wrong record):")
+        for register in correct_order:
+            print(register)
+
         return False
 
 
