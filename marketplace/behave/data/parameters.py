@@ -16,14 +16,16 @@ rules = {
 
 # Required parameters
 rule = "marketplace_api_body_and_output_without_worker"
-api_name = "Worker Leave"
-api_service = "cancel worker leave"
+api_name = "Worker Leave Return Request"
+api_service = "request return from leave of absence"
 api_method = "POST"
 api_version = "V1"
 api_url_service = "HR"
 
+filename_begin = "wl_request_return"
+
 # Optional parameters
-api_operation = "Cancel"
+api_operation = "change"
 api_prefix = ""
 
 PARAMETERS = {
@@ -35,4 +37,5 @@ PARAMETERS = {
     "api_operation": api_operation,
     "api_method": api_method,
     "api_url_service": api_url_service,
+    "filename_begin": filename_begin,
 }

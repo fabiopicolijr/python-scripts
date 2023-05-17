@@ -24,13 +24,13 @@ def interpolate_file(api: Api, template_file: str):
 
 def interpolate_filename(filename, api):
     filepiece_api_operation = api.operation.lower()
-    api_name_underlined = f'{"_".join(api.name.split())}_{api.version}'.lower()
+    # api_name_underlined = f'{"_".join(api.name.split())}_{api.version}'.lower()
 
-    if api.prefix:
-        api_name_underlined = f"{api.prefix}.{api_name_underlined}".lower()
+    # if api.prefix:
+    #     api_name_underlined = f"{api.prefix}.{api_name_underlined}".lower()
 
     new_file = filename.replace(
-        INTERPOLATION_SCHEMA.filename_begin, api_name_underlined
+        INTERPOLATION_SCHEMA.filename_begin, api.filename_begin
     ).replace(INTERPOLATION_SCHEMA.method, filepiece_api_operation)
 
     return new_file

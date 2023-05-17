@@ -13,6 +13,7 @@ class Api:
     operation: str
     method: str
     url_service: str
+    filename_begin: str
     body: ApiBody = field(init=False, repr=True)
 
     def __post_init__(self):

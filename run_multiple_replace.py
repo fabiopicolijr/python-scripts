@@ -1,22 +1,22 @@
 from utils.multiple_replace import MultipleReplace
 
-# in_folder = f'C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace/marketplace/features/files/br/inputs/400/pay_data_inputs/replace'
-in_folder = f"C:/Users/fabio.picoli/projects/fabiopicolijr/python-scripts/marketplace/behave/files/rule_3/templates"
+projects = "C:/Users/fabio.picoli/projects"
+
+# path = f'{projects}/adp/automation/ala.marketplace/marketplace/features/files/br/inputs/400/pay_data_inputs/replace'
+# path = f"{projects}/fabiopicolijr/python-scripts/marketplace/behave/files/rule_3/templates"
+path = f"{projects}/fabiopicolijr/python-scripts/marketplace/behave/output"
+
 search_replace = [
     {
-        "old": '"worker": {',
-        "new": "",
+        "old": '"effectiveDateTime": "2023-01-20T15:15:00Z"',
+        "new": '"effectiveDateTime": "2014-01-01T00:00:00Z"',
     },
-    # {
-    #     "old": f"Pay Data Input Add",
-    #     "new": f"Pay Data Input Replace",
-    # },
 ]
 
 if __name__ == "__main__":
-    print(f"Processing...")
+    print("Processing...")
 
-    mr = MultipleReplace(search_replace, in_folder)
+    mr = MultipleReplace(search_replace, path)
 
     try:
         mr.process_files()

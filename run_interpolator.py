@@ -1,9 +1,9 @@
 import os
 
-from config import PATH
-from data.parameters import PARAMETERS
-from util.file_handling import erase_path
-from util.error_handling import show_error_message
+from marketplace.behave.config import PATH
+from marketplace.behave.data.parameters import PARAMETERS
+from marketplace.behave.util.file_handling import erase_path
+from marketplace.behave.util.error_handling import show_error_message
 from marketplace.behave.classes.api import Api
 from marketplace.behave.interpolating.file_interpolator import interpolate_file
 
@@ -35,6 +35,7 @@ def main():
             operation=PARAMETERS["api_operation"],
             method=PARAMETERS["api_method"],
             url_service=PARAMETERS["api_url_service"],
+            filename_begin=PARAMETERS["filename_begin"],
         )
 
         templates_path = f"{PATH['files']}/rule_{api.rule_code}/templates"
