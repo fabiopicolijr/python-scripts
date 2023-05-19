@@ -1,2 +1,2 @@
 from .multiple_replace import MultipleReplace
-from .config import LOG
+from .settings import LOG

@@ -1,5 +1,7 @@
 from utils.print_color import print_colored
 
+FEATURE_FILE = "br_worker_leave_request_return_v1.feature"
+
 
 def read_file(filename):
     lines = []
@@ -65,10 +67,9 @@ def check_line_groups_order(line_groups):
         return False
 
 
+behave_adp = "C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace"
+filename = f"{behave_adp}/marketplace/features/{FEATURE_FILE}"
 message_ok = True
-
-# Replace 'filename.txt' with the actual name of your file
-filename = "C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace/marketplace/features/br_worker_leave_request_return_v1.feature"  # noqa: E501
 
 # Read the file and obtain lines
 lines = read_file(filename)
