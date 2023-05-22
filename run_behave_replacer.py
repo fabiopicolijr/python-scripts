@@ -7,9 +7,14 @@ from utils.print_color import print_colored
 RULE = RULES[0]  # 0 regular rule
 TASK = TASKS[2]  # 0 headers, 1 save, 2 validate
 
+# General settings
+API_VERSION = "v1"
+
 # Filename Settings
 FILENAME_BEGIN = "wl_absence"
+FILENAME_API_NAME = "leave_absence_request"
 FILENAME_API_METHOD = "change"
+FILENAME_API_VERSION = API_VERSION
 
 # Content Settings
 

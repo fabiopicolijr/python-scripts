@@ -1,0 +1,48 @@
+{
+  "events": [
+    {
+      "eventID": "",
+      "serviceCategoryCode": {
+        "shortName": "[[SERVICE_SHORTNAME]]"
+      },
+      "eventNameCode": {
+        "shortName": "[[EVENT_SHORTNAME]]"
+      },
+      "eventTitle": "[[EVENT_TITLE]]",
+      "recordDateTime": "2014-01-01T00:00:00Z",
+      "creationDateTime": "2014-01-01T00:00:00Z",
+      "effectiveDateTime": "2023-01-20T15:15:00Z",
+      "data": {
+        "eventContext": {
+          "associateOID": "10565022-00001188",
+          "workerID": {
+            "idValue": "001-00000731"
+          }
+        }
+      }
+    },
+    {
+      "eventID": "mais_de_um_objeto_400",
+      "serviceCategoryCode": {
+        "shortName": "[[SERVICE_SHORTNAME]]"
+      },
+      "eventNameCode": {
+        "shortName": "[[EVENT_SHORTNAME]]"
+      },
+      "eventTitle": "[[EVENT_TITLE]]",
+      "recordDateTime": "2014-01-01T00:00:00Z",
+      "creationDateTime": "2014-01-01T00:00:00Z",
+      "effectiveDateTime": "2023-01-20T15:15:00Z",
+      "data": {
+        "eventContext": {
+
+            "associateOID": "10565022-00001188",
+            "workerID": {
+              "idValue": "001-00000731"
+            }
+          }
+        }
+      }
+    }
+  ]
+}
