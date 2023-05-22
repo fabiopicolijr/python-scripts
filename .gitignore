@@ -1,9 +1,11 @@
 ## USER
 # exclude everything
 marketplace/behave/output/*
+output/*
 
 # exception to the rule
 !marketplace/behave/output/.gitkeep
+!output/*.gitkeep
 
 ## PYTHON DEFAULT
 # Byte-compiled / optimized / DLL files
