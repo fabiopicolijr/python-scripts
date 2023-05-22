@@ -1,6 +1,6 @@
 import os
 from .settings import LOG
-from .files import copy_files
+from .file_manager import fileManager
 from .print_color import print_colored
 
 
@@ -23,12 +23,10 @@ class MultipleReplace:
     def set_process_folder(self):
         if not self.out_folder:
             return self.in_folder
-
         else:
-            if not copy_files(self.in_folder, self.out_folder):
-                raise Exception(
-                    f"Files were not copied to {self.out_folder} due to an error."
-                )
+            fm = fileManager(self.in_folder)
+            fm.copy_files(self.out_folder)
+
             return self.out_folder
 
     def process_files(self):

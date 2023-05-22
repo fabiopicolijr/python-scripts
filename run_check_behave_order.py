@@ -1,6 +1,6 @@
 from utils.print_color import print_colored
 
-FEATURE_FILE = "br_worker_leave_request_return_v1.feature"
+FEATURE_FILE = "br_worker_leave_absence_request_v1.feature"
 
 
 def read_file(filename):
@@ -77,13 +77,13 @@ lines = read_file(filename)
 # Group the lines starting with "@" symbol and convert into a dictionary
 line_groups = group_lines_with_at_symbol(lines)
 
-if not check_line_groups_order(line_groups):
-    message_ok = False
-
 for last_register, group in line_groups.items():
     if not check_alphabetical_order(group):
         message_ok = False
         print_colored(f"❌ Scenario: {last_register} has TAGS unordered.", color="red")
+
+if not check_line_groups_order(line_groups):
+    message_ok = False
 
 if message_ok:
     print_colored("✔ No ordering errors were found.\n", color="green")

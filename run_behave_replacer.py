@@ -1,22 +1,56 @@
 import os
-from utils.files import erase_files
-from utils.injector import Injector
-from utils.multiple_replace import MultipleReplace
+from utils.file_manager import fileManager
 from utils.settings import BASE_DIR, LOG, RULES, TASKS
 from utils.print_color import print_colored
 
-# API = "worker_leave_return_request"
+# Behave Replacer settings
+RULE = RULES[0]  # 0 regular rule
+TASK = TASKS[2]  # 0 headers, 1 save, 2 validate
 
+# Filename Settings
+FILENAME_BEGIN = "wl_absence"
+FILENAME_API_METHOD = "change"
+
+# Content Settings
+
+# JSON Settings
 JSON_SERVICE_SHORTNAME = "HR"
 JSON_EVENT_SHORTNAME = "worker.leaves"
 JSON_EVENT_TITLE = "Worker Leaves"
 
-FILENAME_BEGIN = "wl_absence"
-FILENAME_API_METHOD = "change"
+
+def show_script_finished_message(fm: fileManager) -> None:
+    print_colored(
+        f"\nBehave Replacer Process Finished in '{fm.counter_files}' files:",
+        color="green",
+    )
+    print_colored(
+        f"- Files injected count: {fm.counter_replace_injector}",
+        color="green",
+    )
+    print_colored(
+        f"- Filename replaced count: {fm.counter_replace_filename}",
+        color="green",
+    )
+
+    print_colored(
+        f"- Files content replaced count: {fm.counter_replace_content}",
+        color="green",
+    )
+
+    # print_colored(f'- total files "{mr.replaced_count}"', color="green")
+    # print_colored(f'- replace count "{mr.replaced_count}"', color="green")
+    # print_colored(f'- injector count "{injector.counter}"', color="green")
 
 
-if __name__ == "__main__":
-    search_replace = {
+def main():
+    project_folder = os.path.join(BASE_DIR, "behave_replacer")
+    out_folder = f"{project_folder}/output"
+    rule_folder = f"{project_folder}/templates/{RULE}"
+    overlap_folder = f"{rule_folder}/overlap/{TASK}"
+    injector_folder = f"{rule_folder}/injector"
+
+    content_tags = {
         "[[SERVICE_SHORTNAME]]": JSON_SERVICE_SHORTNAME,
         "[[EVENT_SHORTNAME]]": JSON_EVENT_SHORTNAME,
         "[[EVENT_TITLE]]": JSON_EVENT_TITLE,
@@ -24,26 +58,46 @@ if __name__ == "__main__":
         "[[API_METHOD]]": FILENAME_API_METHOD,
     }
 
-    project_folder = os.path.join(BASE_DIR, "behave_replacer")
-    out_folder = f"{project_folder}/output"
-    rule_folder = f"{project_folder}/templates/{RULES[0]}"
-    task_folder = f"{rule_folder}/overlap/{TASKS[2]}"
-    injector_folder = f"{rule_folder}/injector"
+    filename_tags = {
+        "[[FILENAME_BEGIN]]": FILENAME_BEGIN,
+        "[[API_METHOD]]": FILENAME_API_METHOD,
+    }
+
+    injector_tags = {
+        "[[TRANSFORM]]": f"{injector_folder}/transform.json",
+        "[[OUTPUT]]": f"{injector_folder}/output.json",
+    }
 
     if LOG:
         print_colored("Processing...", color="blue")
 
     try:
-        erase_files(out_folder)
-        mr = MultipleReplace(search_replace, task_folder, out_folder, True)
-        mr.process_files()
+        # clear output files
+        fm_output = fileManager(out_folder)
+        fm_output.erase_files()
 
-        injector = Injector(injector_folder, out_folder)
+        # move overlap files to the output folder
+        fm_templates = fileManager(overlap_folder)
+        fm_templates.move_files(out_folder)
 
-        print_colored("\nBehave Replacer Process Finished:", color="green")
-        print_colored(f'- total files "{mr.replaced_count}"', color="green")
-        print_colored(f'- replace count "{mr.replaced_count}"', color="green")
-        print_colored(f'- injector count "{injector.counter}"', color="green")
+        # process files recursively
+        for folder, _, files in os.walk(out_folder):
+            for filename in files:
+                file_path = os.path.join(folder, filename)
+
+                if os.path.isfile(file_path):
+                    # inject file content inside files
+                    fm_output.replace_inject_file(file_path, injector_tags)
+                    # replace file content
+                    fm_output.replace_content(file_path, content_tags)
+                    # replace filenames
+                    fm_output.replace_filename(file_path, filename_tags)
+
+        show_script_finished_message(fm_output)
 
     except Exception as e:
         print_colored("Error: ", str(e), color="red")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,30 @@
+{
+  "events": [
+    {
+      "eventID": "identificadores_invalidos_400",
+      "serviceCategoryCode": {
+        "shortName": "Teste"
+      },
+      "eventNameCode": {
+        "shortName": "worker.leave.return.request"
+      },
+      "eventTitle": "Worker Leave Return Request",
+      "recordDateTime": "2023-01-18T07:50:00Z",
+      "creationDateTime": "2023-01-18T07:50:00Z",
+      "effectiveDateTime": "2014-01-01T00:00:00Z",
+      "data": {
+        "eventContext": {
+          "associateOID": "10565022-00001188",
+          "workerID": {
+            "idValue": "001-00000731"
+          }
+        },
+        "transform": {
+          "leaveReturn": {
+            "returnDateTime": "2014-01-02T00:00:00Z"
+          }
+        }
+      }
+    }
+  ]
+}

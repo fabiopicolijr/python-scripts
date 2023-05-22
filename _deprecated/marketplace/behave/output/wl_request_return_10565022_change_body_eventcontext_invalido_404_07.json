@@ -1,0 +1,25 @@
+{
+  "events": [
+    {
+      "eventID": "eventcontext_invalido_404",
+      "serviceCategoryCode": {
+        "shortName": "HR"
+      },
+      "eventNameCode": {
+        "shortName": "worker.leave.return.request"
+      },
+      "eventTitle": "Worker Leave Return Request",
+      "recordDateTime": "2014-01-01T00:00:00Z",
+      "creationDateTime": "2014-01-01T00:00:00Z",
+      "effectiveDateTime": "2014-01-01T00:00:00Z",
+      "data": {
+        "eventContext": {
+          "associateOID": "217651535-00009542",
+          "workerID": {
+            "idValue": "invalido"
+          }
+        }
+      }
+    }
+  ]
+}
