@@ -4,18 +4,17 @@ from utils.settings import BASE_DIR, LOG, RULES, TASKS
 from utils.print_color import print_colored
 
 # Behave Replacer settings
-RULE = RULES[0]  # 0 regular rule
-TASK = TASKS[2]  # 0 headers, 1 save, 2 validate
+RULE = RULES[0]  # 0=1_TRANSFORM_TAG
+TASK = TASKS[2]  # 0=HEADERS, 1=SAVE, 2=VALIDATE
 
 # General settings
 API_VERSION = "v1"
+API_METHOD = "add"
 
 # Filename Settings
 FILENAME_API_NAME = "worker_leave_absence_request"
-FILENAME_API_VERSION = API_VERSION
 # Filename json Settings
 FILENAME_BEGIN = "wl_absence_request"
-FILENAME_API_METHOD = "add"
 
 # Content Settings
 JSON_SERVICE_SHORTNAME = "HR"
@@ -42,10 +41,6 @@ def show_script_finished_message(fm: fileManager) -> None:
         color="green",
     )
 
-    # print_colored(f'- total files "{mr.replaced_count}"', color="green")
-    # print_colored(f'- replace count "{mr.replaced_count}"', color="green")
-    # print_colored(f'- injector count "{injector.counter}"', color="green")
-
 
 def main():
     project_folder = os.path.join(BASE_DIR, "behave_replacer")
@@ -59,12 +54,14 @@ def main():
         "[[EVENT_SHORTNAME]]": JSON_EVENT_SHORTNAME,
         "[[EVENT_TITLE]]": JSON_EVENT_TITLE,
         "[[FILENAME_BEGIN]]": FILENAME_BEGIN,
-        "[[API_METHOD]]": FILENAME_API_METHOD,
+        "[[API_METHOD]]": API_METHOD,
     }
 
     filename_tags = {
         "[[FILENAME_BEGIN]]": FILENAME_BEGIN,
-        "[[API_METHOD]]": FILENAME_API_METHOD,
+        "[[API_METHOD]]": API_METHOD,
+        "[[FILENAME_API_NAME]]": FILENAME_API_NAME,
+        "[[FILENAME_API_VERSION]]": API_VERSION,
     }
 
     injector_tags = {

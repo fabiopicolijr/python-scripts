@@ -24,17 +24,17 @@ class fileManager:
             file_path = os.path.join(self.source, filename)
             try:
                 if os.path.isfile(file_path) or os.path.islink(file_path):
-                    os.unlink(file_path)
+                    if filename != ".gitkeep":
+                        os.unlink(file_path)
                 elif os.path.isdir(file_path):
                     shutil.rmtree(file_path)
 
-                if LOG:
-                    erased_folder = self.source.split("/")[-1]
-                    print_colored(
-                        f"Files in '{erased_folder}' were erased.", color="blue"
-                    )
             except Exception as e:
                 print("Failed to delete %s. Reason: %s" % (file_path, e))
+
+        if LOG:
+            erased_folder = os.path.basename(self.source)
+            print_colored(f"Files in '{erased_folder}' were erased.", color="blue")
 
     def move_files(self, destination: str) -> None:
         try:
@@ -81,10 +81,10 @@ class fileManager:
                 updated_content = updated_content.replace(tag, replacement_content)
 
                 if filename.endswith("json"):
-                    formatted_content = self._format_json(updated_content, 2)
+                    updated_content = self._format_json(updated_content, 2)
 
             with open(file_path, "w") as file:
-                file.write(formatted_content)
+                file.write(updated_content)
 
             self.counter_replace_injector += 1
 
@@ -146,7 +146,5 @@ class fileManager:
         return json.dumps(json.loads(content), indent=spaces)
 
     def _count_files_recursively(self) -> None:
-        self.counter_files = 0
-
         for root, dirs, files in os.walk(self.source):
             self.counter_files += len(files)
