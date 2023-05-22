@@ -11,17 +11,16 @@ TASK = TASKS[2]  # 0 headers, 1 save, 2 validate
 API_VERSION = "v1"
 
 # Filename Settings
-FILENAME_BEGIN = "wl_absence"
-FILENAME_API_NAME = "leave_absence_request"
-FILENAME_API_METHOD = "change"
+FILENAME_API_NAME = "worker_leave_absence_request"
 FILENAME_API_VERSION = API_VERSION
+# Filename json Settings
+FILENAME_BEGIN = "wl_absence_request"
+FILENAME_API_METHOD = "add"
 
 # Content Settings
-
-# JSON Settings
 JSON_SERVICE_SHORTNAME = "HR"
-JSON_EVENT_SHORTNAME = "worker.leaves"
-JSON_EVENT_TITLE = "Worker Leaves"
+JSON_EVENT_SHORTNAME = "worker-leave-absence.request"
+JSON_EVENT_TITLE = "Worker Leave Absence Request"
 
 
 def show_script_finished_message(fm: fileManager) -> None:
