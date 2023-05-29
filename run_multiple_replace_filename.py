@@ -4,8 +4,11 @@ API = "worker_leave_return_request"
 projects = "C:/Users/fabio.picoli/projects"
 marketplace = "adp/automation/ala.marketplace/marketplace/features/data/br"
 
-path = f"{projects}/{marketplace}/{API}/v1/post/200/inputs"
-# path = f"{projects}/fabiopicolijr/python-scripts/marketplace/behave/output"
+# path = f"{projects}/{marketplace}/{API}/v1/post/200/inputs"
+path = (
+    f"{projects}/fabiopicolijr/python-scripts/behave_replacer/templates/"
+    "rule_1/overlap/headers/data/200/inputs"
+)
 
 
 search_replace = [
@@ -13,7 +16,7 @@ search_replace = [
     #     "old": 'worker_leave',
     #     "new": 'wl_cancel'
     # }
-    {"old": "wl_return_request_v1_v1", "new": "wl_return_request_v1"}
+    {"old": "[[API_METHOD]]", "new": "[[API_OPERATION]]"}
 ]
 
 files_count = 0

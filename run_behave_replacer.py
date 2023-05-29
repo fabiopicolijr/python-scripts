@@ -7,19 +7,33 @@ from utils.print_color import print_colored
 RULE = RULES[0]  # 0=1_TRANSFORM_TAG
 TASK = TASKS[2]  # 0=HEADERS, 1=SAVE, 2=VALIDATE
 
+
+# br_environment
+API_SERVICE_GROUP = "leaves"
+API_SERVICE = "change worker leave"
+
 # General settings
 API_VERSION = "v1"
-API_METHOD = "add"
+API_OPERATION = "change"  # add, change, remove
+API_TITLE = "Worker Leave Change"
+
+API_TITLE_LOWER = API_TITLE.lower()
+API_TITLE_UNDERLINED = API_TITLE_LOWER.replace(" ", "_")
+
 
 # Filename Settings
-FILENAME_API_NAME = "worker_leave_absence_request"
+FILENAME_API_NAME = API_TITLE_UNDERLINED
 # Filename json Settings
-FILENAME_BEGIN = "wl_absence_request"
+FILENAME_BEGIN = "wl_change"
 
 # Content Settings
 JSON_SERVICE_SHORTNAME = "HR"
-JSON_EVENT_SHORTNAME = "worker-leave-absence.request"
-JSON_EVENT_TITLE = "Worker Leave Absence Request"
+JSON_EVENT_SHORTNAME = "worker.leave.change"
+JSON_EVENT_TITLE = API_TITLE
+
+# Feature and step Settings
+FEATURE_TITLE_ARTICLE = "o"  # Eu quero acessar ...
+FEATURE_TITLE_ARTICLE_COMPLEMENT = "lo"  # De modo que eu possa gerenciá-...
 
 
 def show_script_finished_message(fm: fileManager) -> None:
@@ -49,17 +63,39 @@ def main():
     overlap_folder = f"{rule_folder}/overlap/{TASK}"
     injector_folder = f"{rule_folder}/injector"
 
+    match API_OPERATION:
+        case "add":
+            API_OPERATION_BR = "cadastrar"
+        case "change":
+            API_OPERATION_BR = "alterar"
+        case "remove":
+            API_OPERATION_BR = "excluir"
+        case _:
+            API_OPERATION_BR = "API_OPERATION_BR"
+
+    API_OPERATION_CAPITALIZED_BR = API_OPERATION_BR.capitalize()
+
     content_tags = {
         "[[SERVICE_SHORTNAME]]": JSON_SERVICE_SHORTNAME,
         "[[EVENT_SHORTNAME]]": JSON_EVENT_SHORTNAME,
         "[[EVENT_TITLE]]": JSON_EVENT_TITLE,
         "[[FILENAME_BEGIN]]": FILENAME_BEGIN,
-        "[[API_METHOD]]": API_METHOD,
+        "[[API_TITLE]]": API_TITLE,
+        "[[API_TITLE_LOWER]]": API_TITLE_LOWER,
+        "[[API_TITLE_UNDERLINED]]": API_TITLE_UNDERLINED,
+        "[[API_VERSION]]": API_VERSION,
+        "[[API_OPERATION]]": API_OPERATION,
+        "[[API_OPERATION_BR]]": API_OPERATION_BR,
+        "[[API_OPERATION_CAPITALIZED_BR]]": API_OPERATION_CAPITALIZED_BR,
+        "[[API_SERVICE]]": API_SERVICE,
+        "[[API_SERVICE_GROUP]]": API_SERVICE_GROUP,
+        "[[FEATURE_TITLE_ARTICLE]]": FEATURE_TITLE_ARTICLE,
+        "[[FEATURE_TITLE_ARTICLE_COMPLEMENT]]": FEATURE_TITLE_ARTICLE_COMPLEMENT,
     }
 
     filename_tags = {
         "[[FILENAME_BEGIN]]": FILENAME_BEGIN,
-        "[[API_METHOD]]": API_METHOD,
+        "[[API_OPERATION]]": API_OPERATION,
         "[[FILENAME_API_NAME]]": FILENAME_API_NAME,
         "[[FILENAME_API_VERSION]]": API_VERSION,
     }
