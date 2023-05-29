@@ -7,27 +7,6 @@ Feature: [[API_TITLE]] [[API_VERSION]] (BR)
     @[[API_OPERATION_BR]]
     @api
     @br
-    @comparando_resposta
-    @post
-    @status_200
-    @sucesso
-    @[[API_TITLE_UNDERLINED]]_[[API_VERSION]]
-    @[[API_OPERATION_BR]]_comparando_resposta
-    Scenario Outline: [[API_OPERATION_CAPITALIZED_BR]] um [[API_TITLE_LOWER]], comparando o conteúdo esperado da resposta
-      Given que sou um usuário consultando o recurso "[[API_SERVICE]]" da API "[[API_SERVICE_GROUP]]" versão "[[API_VERSION]]"
-      And  tenho os headers do cliente "10565022" e do usuário "MKP_10565022_User.Automation_practitioner"
-      When envio uma chamada para [[API_OPERATION_BR]] um [[API_TITLE_LOWER]] com o body contendo o conteúdo do arquivo "<nome_arquivo_body>"
-      Then a API responde o código de status 200
-      And  a API responde o conteúdo do arquivo "<nome_arquivo_response>"
-
-      Examples: Dados para a chamada, e o conteúdo esperado da resposta
-        | nome_arquivo_body                                    | nome_arquivo_response                                    |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_1.json | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_response_1.json |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_2.json | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_response_2.json |
-
-    @[[API_OPERATION_BR]]
-    @api
-    @br
     @erro
     @eventcontext_invalido
     @post
@@ -160,21 +139,22 @@ Feature: [[API_TITLE]] [[API_VERSION]] (BR)
     @[[API_OPERATION_BR]]
     @api
     @br
+    @erro
     @post
-    @status_200
-    @sucesso
-    @usuarios_ativos
+    @status_400
+    @usuarios_inativos
     @[[API_TITLE_UNDERLINED]]_[[API_VERSION]]
-    @[[API_OPERATION_BR]]_usuarios_ativos
-    Scenario Outline: [[API_OPERATION_CAPITALIZED_BR]] um [[API_TITLE_LOWER]], com usuários ativos
+    @[[API_OPERATION_BR]]_usuarios_inativos
+    Scenario Outline: [[API_OPERATION_CAPITALIZED_BR]] um [[API_TITLE_LOWER]], com usuários inativos
       Given que sou um usuário consultando o recurso "[[API_SERVICE]]" da API "[[API_SERVICE_GROUP]]" versão "[[API_VERSION]]"
-      And   tenho os headers do cliente "10565022" e do usuário "MKP_10565022_User.Automation_practitioner"
+      And   tenho os headers do cliente "217651535" e do usuário "MKP_217651535_User.Inactive_practitioner"
       When  envio uma chamada para [[API_OPERATION_BR]] um [[API_TITLE_LOWER]] com o body contendo o conteúdo do arquivo "<nome_arquivo_body>"
-      Then  a API responde o código de status 200
+      Then  a API responde o código de status 400
+      And   a API responde a mensagem "Invalid Associate ID (Invalid credentials)."
 
       Examples: Dados para a chamada
-        | nome_arquivo_body                                                  |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_usuarios_ativos.json |
+        | nome_arquivo_body                                                           |
+        | [[FILENAME_BEGIN]]_[[API_VERSION]]_217651535_[[API_OPERATION]]_body_usuarios_inativos_400_1.json |
 
     @[[API_OPERATION_BR]]
     @api
@@ -202,26 +182,6 @@ Feature: [[API_TITLE]] [[API_VERSION]] (BR)
     @br
     @erro
     @post
-    @status_400
-    @usuarios_inativos
-    @[[API_TITLE_UNDERLINED]]_[[API_VERSION]]
-    @[[API_OPERATION_BR]]_usuarios_inativos
-    Scenario Outline: [[API_OPERATION_CAPITALIZED_BR]] um [[API_TITLE_LOWER]], com usuários inativos
-      Given que sou um usuário consultando o recurso "[[API_SERVICE]]" da API "[[API_SERVICE_GROUP]]" versão "[[API_VERSION]]"
-      And   tenho os headers do cliente "217651535" e do usuário "MKP_217651535_User.Inactive_practitioner"
-      When  envio uma chamada para [[API_OPERATION_BR]] um [[API_TITLE_LOWER]] com o body contendo o conteúdo do arquivo "<nome_arquivo_body>"
-      Then  a API responde o código de status 400
-      And   a API responde a mensagem "Invalid Associate ID (Invalid credentials)."
-
-      Examples: Dados para a chamada
-        | nome_arquivo_body                                                           |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_217651535_[[API_OPERATION]]_body_usuarios_inativos_400_1.json |
-
-    @[[API_OPERATION_BR]]
-    @api
-    @br
-    @erro
-    @post
     @status_404
     @[[API_TITLE_UNDERLINED]]_[[API_VERSION]]
     @worker_demitido
@@ -236,3 +196,22 @@ Feature: [[API_TITLE]] [[API_VERSION]] (BR)
       Examples: Dados para a chamada
         | nome_arquivo_body                                                         |
         | [[FILENAME_BEGIN]]_[[API_VERSION]]_217651535_[[API_OPERATION]]_body_worker_demitido_404_1.json |
+
+    @[[API_OPERATION_BR]]
+    @api
+    @br
+    @post
+    @status_200
+    @sucesso
+    @usuarios_ativos
+    @[[API_TITLE_UNDERLINED]]_[[API_VERSION]]
+    @[[API_OPERATION_BR]]_usuarios_ativos
+    Scenario Outline: [[API_OPERATION_CAPITALIZED_BR]] um [[API_TITLE_LOWER]], com usuários ativos
+      Given que sou um usuário consultando o recurso "[[API_SERVICE]]" da API "[[API_SERVICE_GROUP]]" versão "[[API_VERSION]]"
+      And   tenho os headers do cliente "10565022" e do usuário "MKP_10565022_User.Automation_practitioner"
+      When  envio uma chamada para [[API_OPERATION_BR]] um [[API_TITLE_LOWER]] com o body contendo o conteúdo do arquivo "<nome_arquivo_body>"
+      Then  a API responde o código de status 200
+
+      Examples: Dados para a chamada
+        | nome_arquivo_body                                                  |
+        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_usuarios_ativos.json |
