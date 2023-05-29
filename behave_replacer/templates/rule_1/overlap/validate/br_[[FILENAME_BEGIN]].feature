@@ -22,14 +22,14 @@ Feature: [[API_TITLE]] [[API_VERSION]] (BR)
 
       Examples: Dados para a chamada
         | nome_arquivo_body                                                               |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_eventcontext_invalido_404_01.json |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_eventcontext_invalido_404_02.json |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_eventcontext_invalido_404_03.json |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_eventcontext_invalido_404_04.json |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_eventcontext_invalido_404_05.json |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_eventcontext_invalido_404_06.json |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_eventcontext_invalido_404_07.json |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_eventcontext_invalido_404_08.json |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_eventcontext_invalido_404_01.json |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_eventcontext_invalido_404_02.json |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_eventcontext_invalido_404_03.json |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_eventcontext_invalido_404_04.json |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_eventcontext_invalido_404_05.json |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_eventcontext_invalido_404_06.json |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_eventcontext_invalido_404_07.json |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_eventcontext_invalido_404_08.json |
 
     @[[API_OPERATION_BR]]
     @api
@@ -49,23 +49,23 @@ Feature: [[API_TITLE]] [[API_VERSION]] (BR)
 
       Examples: Dados para a chamada, e a mensagem esperada da resposta
         | nome_arquivo_body                                                                   | mensagem                                                                                                                              |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_01.json | The eventID is mandatory, this field should contain the ID set by your system to this transaction.                                    |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_02.json | The eventID is mandatory, this field should contain the ID set by your system to this transaction.                                    |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_03.json | The serviceCategoryCode/shortName is mandatory, this field should contain the category of the API according to the API documentation. |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_04.json | The serviceCategoryCode/shortName is mandatory, this field should contain the category of the API according to the API documentation. |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_05.json | The serviceCategoryCode/shortName is mandatory, this field should contain the category of the API according to the API documentation. |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_06.json | The eventNameCode/shortName is mandatory, this field should contain the code of the API according to the API documentation.           |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_07.json | The eventNameCode/shortName is mandatory, this field should contain the code of the API according to the API documentation.           |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_08.json | The eventNameCode/shortName is mandatory, this field should contain the code of the API according to the API documentation.           |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_09.json | The eventTitle is mandatory, this field should contain the name of the API according to the API documentation.                        |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_10.json | The eventTitle is mandatory, this field should contain the name of the API according to the API documentation.                        |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_11.json | The eventTitle is mandatory, this field should contain the name of the API according to the API documentation.                        |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_12.json | The recordDateTime is mandatory, this field should contain the time of the change in your system.                                     |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_13.json | The recordDateTime is mandatory, this field should contain the time of the change in your system.                                     |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_14.json | The recordDateTime is mandatory, this field should contain the time of the change in your system.                                     |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_15.json | The creationDateTime is mandatory, this field should contain the time of the change in your system.                                   |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_16.json | The creationDateTime is mandatory, this field should contain the time of the change in your system.                                   |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_17.json | The creationDateTime is mandatory, this field should contain the time of the change in your system.                                   |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_01.json | The eventID is mandatory, this field should contain the ID set by your system to this transaction.                                    |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_02.json | The eventID is mandatory, this field should contain the ID set by your system to this transaction.                                    |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_03.json | The serviceCategoryCode/shortName is mandatory, this field should contain the category of the API according to the API documentation. |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_04.json | The serviceCategoryCode/shortName is mandatory, this field should contain the category of the API according to the API documentation. |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_05.json | The serviceCategoryCode/shortName is mandatory, this field should contain the category of the API according to the API documentation. |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_06.json | The eventNameCode/shortName is mandatory, this field should contain the code of the API according to the API documentation.           |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_07.json | The eventNameCode/shortName is mandatory, this field should contain the code of the API according to the API documentation.           |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_08.json | The eventNameCode/shortName is mandatory, this field should contain the code of the API according to the API documentation.           |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_09.json | The eventTitle is mandatory, this field should contain the name of the API according to the API documentation.                        |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_10.json | The eventTitle is mandatory, this field should contain the name of the API according to the API documentation.                        |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_11.json | The eventTitle is mandatory, this field should contain the name of the API according to the API documentation.                        |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_12.json | The recordDateTime is mandatory, this field should contain the time of the change in your system.                                     |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_13.json | The recordDateTime is mandatory, this field should contain the time of the change in your system.                                     |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_14.json | The recordDateTime is mandatory, this field should contain the time of the change in your system.                                     |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_15.json | The creationDateTime is mandatory, this field should contain the time of the change in your system.                                   |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_16.json | The creationDateTime is mandatory, this field should contain the time of the change in your system.                                   |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_identificadores_invalidos_400_17.json | The creationDateTime is mandatory, this field should contain the time of the change in your system.                                   |
 
     @[[API_OPERATION_BR]]
     @api
@@ -84,9 +84,9 @@ Feature: [[API_TITLE]] [[API_VERSION]] (BR)
 
       Examples: Dados para a chamada
         | nome_arquivo_body                                                          |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_mais_de_um_objeto_400_1.json |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_mais_de_um_objeto_400_2.json |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_mais_de_um_objeto_400_3.json |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_mais_de_um_objeto_400_1.json |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_mais_de_um_objeto_400_2.json |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_mais_de_um_objeto_400_3.json |
 
     @[[API_OPERATION_BR]]
     @api
@@ -106,15 +106,15 @@ Feature: [[API_TITLE]] [[API_VERSION]] (BR)
 
       Examples: Dados para a chamada (combinação de comandos)
         | query          | nome_arquivo_body                                                        |
-        | $skip=1&$top=1 | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_queries_invalidas_406.json |
+        | $skip=1&$top=1 | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_queries_invalidas_406.json |
 
       Examples: Dados para a chamada (skip)
         | query   | nome_arquivo_body                                                        |
-        | $skip=1 | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_queries_invalidas_406.json |
+        | $skip=1 | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_queries_invalidas_406.json |
 
       Examples: Dados para a chamada (top)
         | query  | nome_arquivo_body                                                        |
-        | $top=1 | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_queries_invalidas_406.json |
+        | $top=1 | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_queries_invalidas_406.json |
 
     @[[API_OPERATION_BR]]
     @api
@@ -134,7 +134,7 @@ Feature: [[API_TITLE]] [[API_VERSION]] (BR)
 
       Examples: Dados para a chamada, e a mensagem esperada da resposta
         | nome_arquivo_body                                                            | mensagem                 |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_transform_invalido_400_01.json | Invalid payment method.  |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_transform_invalido_400_01.json | Invalid payment method.  |
 
     @[[API_OPERATION_BR]]
     @api
@@ -154,7 +154,7 @@ Feature: [[API_TITLE]] [[API_VERSION]] (BR)
 
       Examples: Dados para a chamada
         | nome_arquivo_body                                                           |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_217651535_[[API_OPERATION]]_body_usuarios_inativos_400_1.json |
+        | [[FILENAME_BEGIN]]_217651535_[[API_OPERATION]]_body_usuarios_inativos_400_1.json |
 
     @[[API_OPERATION_BR]]
     @api
@@ -174,8 +174,8 @@ Feature: [[API_TITLE]] [[API_VERSION]] (BR)
 
       Examples: Dados para a chamada
         | cliente   | usuario                                            | nome_arquivo_body                                                                 |
-        | 10565022  | MKP_10565022_User.Automation_practitioner          | [[FILENAME_BEGIN]]_[[API_VERSION]]_217651535_[[API_OPERATION]]_body_usuarios_com_restricoes_404_1.json |
-        | 217651535 | MKP_217651535_User.EstabTodosMenos028_practitioner | [[FILENAME_BEGIN]]_[[API_VERSION]]_217651535_[[API_OPERATION]]_body_usuarios_com_restricoes_404_2.json |
+        | 10565022  | MKP_10565022_User.Automation_practitioner          | [[FILENAME_BEGIN]]_217651535_[[API_OPERATION]]_body_usuarios_com_restricoes_404_1.json |
+        | 217651535 | MKP_217651535_User.EstabTodosMenos028_practitioner | [[FILENAME_BEGIN]]_217651535_[[API_OPERATION]]_body_usuarios_com_restricoes_404_2.json |
 
     @[[API_OPERATION_BR]]
     @api
@@ -195,7 +195,7 @@ Feature: [[API_TITLE]] [[API_VERSION]] (BR)
 
       Examples: Dados para a chamada
         | nome_arquivo_body                                                         |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_217651535_[[API_OPERATION]]_body_worker_demitido_404_1.json |
+        | [[FILENAME_BEGIN]]_217651535_[[API_OPERATION]]_body_worker_demitido_404_1.json |
 
     @[[API_OPERATION_BR]]
     @api
@@ -214,4 +214,4 @@ Feature: [[API_TITLE]] [[API_VERSION]] (BR)
 
       Examples: Dados para a chamada
         | nome_arquivo_body                                                  |
-        | [[FILENAME_BEGIN]]_[[API_VERSION]]_10565022_[[API_OPERATION]]_body_usuarios_ativos.json |
+        | [[FILENAME_BEGIN]]_10565022_[[API_OPERATION]]_body_usuarios_ativos.json |

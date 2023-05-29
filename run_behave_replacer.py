@@ -24,7 +24,7 @@ API_TITLE_UNDERLINED = API_TITLE_LOWER.replace(" ", "_")
 # Filename Settings
 FILENAME_API_NAME = API_TITLE_UNDERLINED
 # Filename json Settings
-FILENAME_BEGIN = "wl_change"
+FILENAME_BEGIN = f"wl_change_{API_VERSION}"
 
 # Content Settings
 JSON_SERVICE_SHORTNAME = "HR"
@@ -34,6 +34,18 @@ JSON_EVENT_TITLE = API_TITLE
 # Feature and step Settings
 FEATURE_TITLE_ARTICLE = "o"  # Eu quero acessar ...
 FEATURE_TITLE_ARTICLE_COMPLEMENT = "lo"  # De modo que eu possa gerenciá-...
+
+match API_OPERATION:
+    case "add":
+        API_OPERATION_BR = "cadastrar"
+    case "change":
+        API_OPERATION_BR = "alterar"
+    case "remove":
+        API_OPERATION_BR = "excluir"
+    case _:
+        API_OPERATION_BR = "API_OPERATION_BR"
+
+API_OPERATION_CAPITALIZED_BR = API_OPERATION_BR.capitalize()
 
 
 def show_script_finished_message(fm: fileManager) -> None:
@@ -56,24 +68,25 @@ def show_script_finished_message(fm: fileManager) -> None:
     )
 
 
+def process_files(fm_output, injector_tags, content_tags, filename_tags):
+    for folder, _, files in os.walk(fm_output.folder):
+        for filename in files:
+            file_path = os.path.join(folder, filename)
+            if os.path.isfile(file_path):
+                # Inject file content inside files
+                fm_output.replace_inject_file(file_path, injector_tags)
+                # Replace file content
+                fm_output.replace_content(file_path, content_tags)
+                # Replace filenames
+                fm_output.replace_filename(file_path, filename_tags)
+
+
 def main():
     project_folder = os.path.join(BASE_DIR, "behave_replacer")
     out_folder = f"{project_folder}/output"
     rule_folder = f"{project_folder}/templates/{RULE}"
     overlap_folder = f"{rule_folder}/overlap/{TASK}"
     injector_folder = f"{rule_folder}/injector"
-
-    match API_OPERATION:
-        case "add":
-            API_OPERATION_BR = "cadastrar"
-        case "change":
-            API_OPERATION_BR = "alterar"
-        case "remove":
-            API_OPERATION_BR = "excluir"
-        case _:
-            API_OPERATION_BR = "API_OPERATION_BR"
-
-    API_OPERATION_CAPITALIZED_BR = API_OPERATION_BR.capitalize()
 
     content_tags = {
         "[[SERVICE_SHORTNAME]]": JSON_SERVICE_SHORTNAME,
@@ -118,17 +131,7 @@ def main():
         fm_templates.move_files(out_folder)
 
         # process files recursively
-        for folder, _, files in os.walk(out_folder):
-            for filename in files:
-                file_path = os.path.join(folder, filename)
-
-                if os.path.isfile(file_path):
-                    # inject file content inside files
-                    fm_output.replace_inject_file(file_path, injector_tags)
-                    # replace file content
-                    fm_output.replace_content(file_path, content_tags)
-                    # replace filenames
-                    fm_output.replace_filename(file_path, filename_tags)
+        process_files(fm_output, injector_tags, content_tags, filename_tags)
 
         show_script_finished_message(fm_output)
 

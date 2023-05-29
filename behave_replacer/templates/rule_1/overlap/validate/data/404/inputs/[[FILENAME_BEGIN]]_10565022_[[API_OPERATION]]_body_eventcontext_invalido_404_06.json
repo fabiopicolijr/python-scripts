@@ -14,11 +14,12 @@
       "effectiveDateTime": "2023-01-20T15:15:00Z",
       "data": {
         "eventContext": {
-          "associateOID": "217651535-00009542",
+          "associateOID": "217651535X00009542",
           "workerID": {
             "idValue": ""
           }
-        }
+        },
+        [[TRANSFORM]]
       }
     }
   ]

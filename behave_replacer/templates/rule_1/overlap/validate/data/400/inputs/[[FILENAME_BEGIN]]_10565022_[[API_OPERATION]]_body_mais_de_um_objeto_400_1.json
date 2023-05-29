@@ -14,7 +14,7 @@
       "effectiveDateTime": "2023-01-20T15:15:00Z",
       "data": {
         "eventContext": {
-          "associateOID": "10565022-00001188",
+          "associateOID": "10565022X00001188",
           "workerID": {
             "idValue": "001-00000731"
           }
@@ -36,7 +36,7 @@
       "data": {
         "eventContext": {
 
-            "associateOID": "10565022-00001188",
+            "associateOID": "10565022X00001188",
             "workerID": {
               "idValue": "001-00000731"
             }
