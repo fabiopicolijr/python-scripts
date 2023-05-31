@@ -3,19 +3,41 @@ from utils.file_manager import fileManager
 from utils.settings import BASE_DIR, LOG, RULES, TASKS
 from utils.print_color import print_colored
 
+# Constants and Settings
+RULE = RULES[0]
+TASK = TASKS[2]
 
-def process_files(fm_output, injector_tags, content_tags, filename_tags):
-    for folder, _, files in os.walk(fm_output.source):
-        for filename in files:
-            file_path = os.path.join(folder, filename)
+API_SERVICE_GROUP = "leaves"
+API_SERVICE = "change worker leave"
 
-            if os.path.isfile(file_path):
-                # Inject file content inside files
-                fm_output.replace_inject_file(file_path, injector_tags)
-                # Replace file content
-                fm_output.replace_content(file_path, content_tags)
-                # Replace filenames
-                fm_output.replace_filename(file_path, filename_tags)
+API_VERSION = "v1"
+API_OPERATION = "change"
+API_TITLE = "Worker Leave Change"
+
+API_TITLE_LOWER = API_TITLE.lower()
+API_TITLE_UNDERLINED = API_TITLE_LOWER.replace(" ", "_")
+
+FILENAME_API_NAME = API_TITLE_UNDERLINED
+FILENAME_BEGIN = f"wl_change_{API_VERSION}"
+
+JSON_SERVICE_SHORTNAME = "HR"
+JSON_EVENT_SHORTNAME = "worker.leave.change"
+JSON_EVENT_TITLE = API_TITLE
+
+FEATURE_TITLE_ARTICLE = "o"
+FEATURE_TITLE_ARTICLE_COMPLEMENT = "lo"
+
+match API_OPERATION:
+    case "add":
+        API_OPERATION_BR = "cadastrar"
+    case "change":
+        API_OPERATION_BR = "alterar"
+    case "remove":
+        API_OPERATION_BR = "excluir"
+    case _:
+        API_OPERATION_BR = "API_OPERATION_BR"
+
+API_OPERATION_CAPITALIZED_BR = API_OPERATION_BR.capitalize()
 
 
 def show_script_finished_message(fm: fileManager) -> None:
@@ -31,48 +53,28 @@ def show_script_finished_message(fm: fileManager) -> None:
         f"- Filename replaced count: {fm.counter_replace_filename}",
         color="green",
     )
+
     print_colored(
         f"- Files content replaced count: {fm.counter_replace_content}",
         color="green",
     )
 
 
+def process_files(fm_output, injector_tags, content_tags, filename_tags):
+    for folder, _, files in os.walk(fm_output.source):
+        for filename in files:
+            file_path = os.path.join(folder, filename)
+
+            if os.path.isfile(file_path):
+                # inject file content inside files
+                fm_output.replace_inject_file(file_path, injector_tags)
+                # replace file content
+                fm_output.replace_content(file_path, content_tags)
+                # replace filenames
+                fm_output.replace_filename(file_path, filename_tags)
+
+
 def main():
-    RULE = RULES[0]
-    TASK = TASKS[2]
-
-    API_SERVICE_GROUP = "leaves"
-    API_SERVICE = "change worker leave"
-
-    API_VERSION = "v1"
-    API_OPERATION = "change"
-    API_TITLE = "Worker Leave Change"
-
-    API_TITLE_LOWER = API_TITLE.lower()
-    API_TITLE_UNDERLINED = API_TITLE_LOWER.replace(" ", "_")
-
-    FILENAME_API_NAME = API_TITLE_UNDERLINED
-    FILENAME_BEGIN = f"wl_change_{API_VERSION}"
-
-    JSON_SERVICE_SHORTNAME = "HR"
-    JSON_EVENT_SHORTNAME = "worker.leave.change"
-    JSON_EVENT_TITLE = API_TITLE
-
-    FEATURE_TITLE_ARTICLE = "o"
-    FEATURE_TITLE_ARTICLE_COMPLEMENT = "lo"
-
-    match API_OPERATION:
-        case "add":
-            API_OPERATION_BR = "cadastrar"
-        case "change":
-            API_OPERATION_BR = "alterar"
-        case "remove":
-            API_OPERATION_BR = "excluir"
-        case _:
-            API_OPERATION_BR = "API_OPERATION_BR"
-
-    API_OPERATION_CAPITALIZED_BR = API_OPERATION_BR.capitalize()
-
     project_folder = os.path.join(BASE_DIR, "behave_replacer")
     out_folder = os.path.join(project_folder, "output")
     rule_folder = os.path.join(project_folder, "templates", RULE)
@@ -113,21 +115,21 @@ def main():
         print_colored("Processing...", color="blue")
 
     try:
-        # Clear output files
+        # clear output files
         fm_output = fileManager(out_folder)
         fm_output.erase_files()
 
-        # Move overlap files to the output folder
+        # move overlap files to the output folder
         fm_templates = fileManager(overlap_folder)
         fm_templates.move_files(fm_output.source)
 
-        # Process files recursively
+        # process files recursively
         process_files(fm_output, injector_tags, content_tags, filename_tags)
 
         show_script_finished_message(fm_output)
 
     except Exception as e:
-        print_colored("Error: ", str(e))
+        print_colored("Error: ", str(e), color="red")
 
 
 if __name__ == "__main__":
