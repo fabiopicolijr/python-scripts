@@ -1,6 +1,6 @@
 from utils.print_color import print_colored
 
-FEATURE_FILE = "br_worker_leave_absence_request_v1.feature"
+FEATURE_FILE = "br_worker_leave_cancel_v1.feature"
 
 
 def read_file(filename):
