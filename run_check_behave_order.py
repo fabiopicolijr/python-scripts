@@ -62,7 +62,9 @@ def check_line_groups_order(line_groups):
 
 
 if __name__ == "__main__":
-    #
+    # Remember to run with parameter FEATURE_FILE:
+    # python run_check_behave_order.py br_worker_leave_change_v1
+
     parser = argparse.ArgumentParser()
     parser.add_argument("FEATURE_FILE", help="Path to the feature file")
     args = parser.parse_args()
