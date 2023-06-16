@@ -1,6 +1,5 @@
+import argparse
 from utils.print_color import print_colored
-
-FEATURE_FILE = "br_worker_leave_cancel_v1.feature"
 
 
 def read_file(filename):
@@ -26,11 +25,6 @@ def group_lines_with_at_symbol(lines):
             line_groups[last_register] = current_group
             current_group = []
             last_register = None
-
-    if current_group:
-        if len(current_group) > 1:
-            current_group = current_group[:-1]
-        line_groups[last_register] = current_group
 
     return line_groups
 
@@ -67,23 +61,34 @@ def check_line_groups_order(line_groups):
         return False
 
 
-behave_adp = "C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace"
-filename = f"{behave_adp}/marketplace/features/{FEATURE_FILE}"
-message_ok = True
+if __name__ == "__main__":
+    #
+    parser = argparse.ArgumentParser()
+    parser.add_argument("FEATURE_FILE", help="Path to the feature file")
+    args = parser.parse_args()
+    file = args.FEATURE_FILE
 
-# Read the file and obtain lines
-lines = read_file(filename)
+    behave_adp = "C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace"
+    filename = f"{behave_adp}/marketplace/features/{file}.feature"
+    message_ok = True
 
-# Group the lines starting with "@" symbol and convert into a dictionary
-line_groups = group_lines_with_at_symbol(lines)
+    # Read the file and obtain lines
+    lines = read_file(filename)
 
-for last_register, group in line_groups.items():
-    if not check_alphabetical_order(group):
+    # Group the lines starting with "@" symbol and convert into a dictionary
+    groups = group_lines_with_at_symbol(lines)
+    # remove one register groups, like @periodo, @especificos e etc.
+    groups_filtered = dict(filter(lambda item: len(item[1]) > 1, groups.items()))
+
+    for last_register, group in groups_filtered.items():
+        if not check_alphabetical_order(group):
+            message_ok = False
+            print_colored(
+                f"❌ Scenario: {last_register} has TAGS unordered.", color="red"
+            )
+
+    if not check_line_groups_order(groups_filtered):
         message_ok = False
-        print_colored(f"❌ Scenario: {last_register} has TAGS unordered.", color="red")
 
-if not check_line_groups_order(line_groups):
-    message_ok = False
-
-if message_ok:
-    print_colored("✔ No ordering errors were found.\n", color="green")
+    if message_ok:
+        print_colored("✔ No ordering errors were found.\n", color="green")
