@@ -19,7 +19,62 @@
       "program": "${workspaceFolder}/run_check_behave_order.py",
       "console": "integratedTerminal",
       "args": ["br_worker_leave_change_v1"]
+    },
+    {
+      "name": "Behave Tag Checker: br_organizations_v2",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/run_check_behave_order.py",
+      "console": "integratedTerminal",
+      "args": ["br_organizations_v2"]
+    },
+    {
+      "name": "Behave Tag Checker: br_worker_reportsTo_v1",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/run_check_behave_order.py",
+      "console": "integratedTerminal",
+      "args": ["br_worker_reportsTo_v1"]
+    },
+    {
+      "name": "Behave Tag Checker: br_worker_biological_data_management_gender_v1",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/run_check_behave_order.py",
+      "console": "integratedTerminal",
+      "args": ["br_worker_biological_data_management_gender_v1"]
+    },
+    {
+      "name": "Behave Tag Checker: br_payroll_schedule_uploads_v1",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/run_check_behave_order.py",
+      "console": "integratedTerminal",
+      "args": ["br_payroll_schedule_uploads_v1"]
+    },
+    {
+      "name": "Behave Tag Checker: br_worker_pay_distributions_v2",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/run_check_behave_order.py",
+      "console": "integratedTerminal",
+      "args": ["br_worker_pay_distributions_v2"]
+    },
+    {
+      "name": "Behave Tag Checker: br_worker_terminate_v1",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/run_check_behave_order.py",
+      "console": "integratedTerminal",
+      "args": ["br_worker_terminate_v1"]
+    },
+    {
+      "name": "Behave Tag Checker: br_worker_assignment_terminate_v1",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/run_check_behave_order.py",
+      "console": "integratedTerminal",
+      "args": ["br_worker_assignment_terminate_v1"]
     }
-
   ]
 }
