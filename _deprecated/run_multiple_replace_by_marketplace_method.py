@@ -5,7 +5,8 @@ old_method = "add"
 new_method = "modify"
 
 # CONST VARIABLES
-in_folder = f"C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace/marketplace/features/files/br/inputs/400/pay_data_inputs/{new_method}"  # noqa: E501
+in_folder = f"C:/Users/fabio.picoli/projects/adp/automation/ala.marketplace/ \
+    marketplace/features/files/br/inputs/400/pay_data_inputs/{new_method}"
 
 search_replace = [
     {

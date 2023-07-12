@@ -1,22 +1,19 @@
 import os
 
-API = "worker_leave_return_request"
+API_FOLDER = "worker_assignment_terminate"
 projects = "C:/Users/fabio.picoli/projects"
 marketplace = "adp/automation/ala.marketplace/marketplace/features/data/br"
 
-# path = f"{projects}/{marketplace}/{API}/v1/post/200/inputs"
-path = (
-    f"{projects}/fabiopicolijr/python-scripts/behave_replacer/templates/"
-    "rule_1/overlap/headers/data/200/inputs"
-)
+path = f"{projects}/{marketplace}/{API_FOLDER}/v1/post/404/inputs"
+# path = (
+#     f"{projects}/fabiopicolijr/python-scripts/behave_replacer/templates/"
+#     "rule_1/overlap/headers/data/200/inputs"
+# )
 
 
 search_replace = [
-    # {
-    #     "old": 'worker_leave',
-    #     "new": 'wl_cancel'
-    # }
-    {"old": "[[API_METHOD]]", "new": "[[API_OPERATION]]"}
+    {"old": "worker_terminate", "new": "worker_assignment_terminate"}
+    # {"old": "[[API_METHOD]]", "new": "[[API_OPERATION]]"}
 ]
 
 files_count = 0
